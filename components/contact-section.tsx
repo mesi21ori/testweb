@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { Phone, Mail, Clock, MapPin, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
@@ -7,13 +9,7 @@ import { useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-
-interface ContactInfo {
-  phone: string
-  email: string
-  serviceHours: string
-  address: string
-}
+import { contactInfo } from "@/lib/data" // Import contactInfo
 
 interface FormData {
   name: string
@@ -23,11 +19,12 @@ interface FormData {
 }
 
 type FormStatus = {
-  type: 'idle' | 'loading' | 'success' | 'error'
+  type: "idle" | "loading" | "success" | "error"
   message: string
 }
 
-export function ContactSection({ contact }: { contact: ContactInfo }) {
+export function ContactSection() {
+  // Removed 'contact' prop
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [formData, setFormData] = useState<FormData>({
@@ -55,15 +52,15 @@ export function ContactSection({ contact }: { contact: ContactInfo }) {
       setStatus({ type: "error", message: "Please fill in all fields" })
       return
     }
-    
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(formData.email)) {
       setStatus({ type: "error", message: "Please enter a valid email address" })
       return
     }
-    
+
     setStatus({ type: "loading", message: "Sending your message..." })
-    
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -72,11 +69,11 @@ export function ContactSection({ contact }: { contact: ContactInfo }) {
         },
         body: JSON.stringify(formData),
       })
-      
+
       if (response.ok) {
-        setStatus({ 
-          type: "success", 
-          message: "Message sent successfully!" 
+        setStatus({
+          type: "success",
+          message: "Message sent successfully!",
         })
         setFormData({ name: "", email: "", subject: "", message: "" })
       } else {
@@ -99,13 +96,9 @@ export function ContactSection({ contact }: { contact: ContactInfo }) {
           transition={{ duration: 0.6 }}
           className="text-center mb-8"
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">
-           ያግኙን 
-          </h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">ያግኙን</h2>
           <p className="text-lg text-gray-600">የሰንበት ትምህርትቤቶች አንድነትን ለማግኘት ከፈለጉ ከታች ያሉትን አድራሻዎች በመጠቀም ማግኘት ይችላሉ</p>
         </motion.div>
-
-
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column - Contact Information */}
@@ -117,47 +110,51 @@ export function ContactSection({ contact }: { contact: ContactInfo }) {
           >
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-blue-100 text-blue-600 rounded-lg">
-                  <Phone className="w-4 h-4" />
+                <div className="p-2 bg-yellow-600/80 text-navy rounded-lg">
+                  {" "}
+                  {/* Updated color */}
+                  <Phone className="w-4 h-4 text-white" />
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">ስልክ</h4>
-                  <p className="text-gray-700 text-sm">{contact.phone}</p>
+                  <p className="text-gray-700 text-sm">{contactInfo.phone}</p> {/* Using imported data */}
                 </div>
               </div>
-
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-red-100 text-red-600 rounded-lg">
-                  <Mail className="w-4 h-4" />
+                <div className="p-2 bg-yellow-600/80 text-taupe rounded-lg">
+                  {" "}
+                  {/* Updated color */}
+                  <Mail className="w-4 h-4  text-white" />
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">ኢሜል</h4>
-                  <p className="text-gray-700 text-sm">{contact.email}</p>
+                  <p className="text-gray-700 text-sm">{contactInfo.email}</p> {/* Using imported data */}
                 </div>
               </div>
-
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-green-100 text-green-600 rounded-lg">
-                  <Clock className="w-4 h-4" />
+                <div className="p-2  bg-yellow-600/80  text-navy rounded-lg">
+                  {" "}
+                  {/* Updated color */}
+                  <Clock className="w-4 h-4 text-white" />
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">የስራ ሰአት</h4>
-                  <p className="text-gray-700 text-sm">{contact.serviceHours}</p>
+                  <p className="text-gray-700 text-sm">{contactInfo.serviceHours}</p> {/* Using imported data */}
                 </div>
               </div>
-
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-yellow-100 text-yellow-600 rounded-lg">
-                  <MapPin className="w-4 h-4" />
+                <div className="p-2 bg-taupe/10 text-taupe rounded-lg  bg-yellow-600/80 ">
+                  {" "}
+                  {/* Updated color */}
+                  <MapPin className="w-4 h-4 text-white" />
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">አድራሻ</h4>
-                  <p className="text-gray-700 text-sm">{contact.address}</p>
+                  <p className="text-gray-700 text-sm">{contactInfo.address}</p> {/* Using imported data */}
                 </div>
               </div>
             </div>
           </motion.div>
-
           {/* Right Column - Compact Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -166,7 +163,6 @@ export function ContactSection({ contact }: { contact: ContactInfo }) {
             className="bg-white p-6 rounded-xl border border-gray-200 shadow-xs"
           >
             <h3 className="text-xl font-semibold text-gray-900 mb-4">ለማንኛውም አይነት ጥያቄ እና አስተያየት ከታች ያለውን ፎርም ይጠቀሙ</h3>
-            
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid gap-4">
                 <div>
@@ -193,7 +189,6 @@ export function ContactSection({ contact }: { contact: ContactInfo }) {
                   />
                 </div>
               </div>
-              
               <div>
                 <Input
                   id="subject"
@@ -205,7 +200,6 @@ export function ContactSection({ contact }: { contact: ContactInfo }) {
                   required
                 />
               </div>
-              
               <div>
                 <Textarea
                   id="message"
@@ -218,17 +212,16 @@ export function ContactSection({ contact }: { contact: ContactInfo }) {
                   required
                 />
               </div>
-              
               {status.type !== "idle" && (
                 <motion.div
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   className={`p-3 rounded-lg text-sm flex items-center gap-2 ${
                     status.type === "success"
-                      ? "bg-green-50 text-green-800"
+                      ? "bg-green-100 text-green-700" 
                       : status.type === "error"
-                        ? "bg-red-50 text-red-800"
-                        : "bg-blue-50 text-blue-800"
+                        ? "bg-red-100 text-red-700" 
+                        : "bg-navy/10 text-navy" 
                   }`}
                 >
                   {status.type === "loading" && <Loader2 className="animate-spin w-4 h-4" />}
@@ -237,12 +230,11 @@ export function ContactSection({ contact }: { contact: ContactInfo }) {
                   <span>{status.message}</span>
                 </motion.div>
               )}
-              
               <Button
                 type="submit"
                 size="sm"
                 disabled={status.type === "loading"}
-                className="w-full mt-2"
+                className="w-full mt-2 bg-yellow-700/80 hover:bg-navy/90 text-white" 
               >
                 {status.type === "loading" ? (
                   <>

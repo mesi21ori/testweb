@@ -1,4 +1,9 @@
-// Sample data structure for Ethiopian administrative divisions
+
+import { BookOpen, Users, Calendar } from "lucide-react"
+import type React from "react"
+
+import { Eye, Gem, Target } from "lucide-react"
+import { ReactNode } from "react"
 
 export const mainCityData = {
   cities: [
@@ -262,4 +267,165 @@ export function getWeredaData(cityId: string, subcityId: string, weredaId: strin
   }
 
   return weredaDataMap[weredaId]
+}
+
+
+export const NEWS_ARTICLES = [
+  {
+    title: "ዓመታዊ የእሁድ ትምህርት ቤት ስብሰባ ተገለጸ",
+    description: "ኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተክርስቲያን ዓመታዊውን የእሁድ ትምህርት ቤት አንድነት ስብሰባ �ወጋለች። ስብሰባው በመንፈሳዊ እድ�ሳ እና የማህበረሰብ ግንባታ ላይ ያተኮረ ሲሆን ለሁሉም ሲኖዶስ ምዝገባ ተከፍቷል።",
+    category: "ፕሮግራሞች",
+    highlights: ["ዋና አዋጪ ተናጋሪዎች �ረጋገጡ", "ቅድመ ምዝገባ ተከፍቷል", "በመንፈሳዊ እድገት ላይ የስልጠና ክፍሎች"],
+    bgImageUrl: "/placeholder.svg?height=400&width=600",
+    liveUrl: "#",
+    sourceUrl: "#",
+    status: "አዲስ",
+  },
+  {
+    title: "ለጨዋማ ተማሪዎች አዲስ የትምህርት ሥርዓት ተጀመረ",
+    description: "ለጨዋማ እሁድ ትምህርት ቤት ተማሪዎች (7-12 ዓመት) የተዘጋጀ አዲስ የትምህርት ሥርዓት ተጀምሯል። �ና �ና የሃይማኖት ጽንሰ ሀሳቦችን በተግባራዊ መንገድ ለማስተማር የተዘጋጀ ነው።",
+    category: "ትምህርት",
+    highlights: ["ተግባራዊ የሆኑ ክፍሎች", "ለመምህራን የስልጠና ክፍሎች", "በመሠረታዊ የሃይማኖት �ሥጋ ላይ ትኩረት"],
+    bgImageUrl: "/placeholder.svg?height=400&width=600",
+    liveUrl: "#",
+    sourceUrl: "#",
+    status: "የታተመ",
+  },
+  {
+    title: "የማህበረሰብ አገልግሎት ፕሮግራም ተሳካ",
+    description: "'እጆች ፍቅር' የተሰኘው የማህበረሰብ አገልግሎት ፕሮግራም በተለያዩ ክፍለ ከተሞች ለ500 ቤተሰቦች �ስካሚ እና ድጋፍ ማድረጉን ቤተክርስቲያኑ ለማህበራዊ ደህንነት ያለውን ቁርጠኝነት አሳይቷል።",
+    category: "ማህበረሰብ",
+    highlights: ["500+ ቤተሰቦች ተረኩ", "የበጎ አድራጎት ጥረቶች", "የወደፊት ፕሮግራሞች ተዘጋጅተዋል"],
+    bgImageUrl: "/placeholder.svg?height=400&width=600",
+    liveUrl: "#",
+    sourceUrl: "#",
+    status: "የታተመ",
+  },
+  {
+    title: "የወጣቶች አመራር ስብሰባ ተጠናቀቀ",
+    description: "ከ15 ሲኖዶሶች የተውጣጡ ወጣት አመራሮች በሃይማኖት፣ በአመራር እና በዘመናዊ ፈተናዎች �ይን በማድረግ የመጀመሪያው �ዜጣዊ ወጣት አመራር ስብሰባ ተጠናቋል።",
+    category: "ወጣቶች",
+    highlights: ["የአመራር ስልጠና", "በሲኖዶሶች መካከል የጋራ ጥረት", "የወጣቶች ፕሮግራሞች"],
+    bgImageUrl: "/placeholder.svg?height=400&width=600",
+    liveUrl: "#",
+    sourceUrl: "#",
+    status: "የታተመ",
+  },
+  {
+    title: "የዲጂታል ማህደር ፕሮጀክት በመንገድ ላይ",
+    description: "የእሁድ ትምህርት ቤት ታሪካዊ የሆኑ ሰነዶችን በዲጂታል መልክ ለማስቀመጥ አዲስ ፕሮጀክት ተጀምሯል። ይህ ፕሮጀክት ባለፉት ዘመናት የተገኘውን ታሪካዊ ቅርስ ለወደፊት ትውልድ ተደራሽ ለማድረግ ያለመ ነው።",
+    category: "ቅርስ",
+    highlights: ["የቅርስ ጥበቃ", "ለተመራማሪዎች ተደራሽነት", "የበጎ አድራጎት እድሎች"],
+    bgImageUrl: "/placeholder.svg?height=400&width=600",
+    liveUrl: "#",
+    sourceUrl: "#",
+    status: "በመንገድ ላይ",
+  },
+  {
+    title: "አዲስ ቤተክርስቲያን በቦሌ ክፍለ ከተማ ተመርቋል",
+    description: "አዲስ የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተክርስቲያን በቦሌ ክፍለ ከተማ ተመርቋል። ይህ ቤተክርስቲያን �ናውን ቤተክርስቲያን አቅም እና ቦታ በማስፋፋት ረገድ አስፈላጊ እርምጃ ነው። ይህ ቤተክርስቲያን �ናውን ቤተክርስቲያን አቅም እና ቦታ በማስፋፋት ረገድ አስፈላጊ እርምጃ ነው። ይህ ቤተክርስቲያን �ናውን ቤተክርስቲያን አቅም እና ቦታ በማስፋፋት ረገድ አስፈላጊ እርምጃ ነው። ይህ ቤተክርስቲያን �ናውን ቤተክርስቲያን አቅም እና ቦታ በማስፋፋት ረገድ አስፈላጊ እርምጃ ነው። ይህ ቤተክርስቲያን �ናውን ቤተክርስቲያን አቅም እና ቦታ በማስፋፋት ረገድ አስፈላጊ እርምጃ ነው። ይህ ቤተክርስቲያን �ናውን ቤተክርስቲያን አቅም እና ቦታ በማስፋፋት ረገድ አስፈላጊ እርምጃ ነው። ይህ ቤተክርስቲያን �ናውን ቤተክርስቲያን አቅም እና ቦታ በማስፋፋት ረገድ አስፈላጊ እርምጃ ነው። ይህ ቤተክርስቲያን �ናውን ቤተክርስቲያን አቅም እና ቦታ በማስፋፋት ረገድ አስፈላጊ እርምጃ ነው። ይህ ቤተክርስቲያን �ናውን ቤተክርስቲያን አቅም እና ቦታ በማስፋፋት ረገድ አስፈላጊ እርምጃ ነው።",
+    category: "ማስፋፋት",
+    highlights: ["አቅም ጨመረ", "የማህበረሰብ ማዕከል", "የበረከት ስነ ስርዓት"],
+    bgImageUrl: "/placeholder.svg?height=400&width=600",
+    liveUrl: "#",
+    sourceUrl: "#",
+    status: "አዲስ",
+  },
+]
+
+
+export interface MissionVisionValue {
+  title: string
+  description: string
+  icon?: React.ElementType // For Lucide icons
+}
+
+export const MISSION_VISION_VALUES: MissionVisionValue[] = [
+  {
+    title: "የእኛ ተልእኮ",
+    description:
+      "በፍጥነት በሚቀየር ዓለም ውስጥ እድገትን የሚያስተባብሩ እና ዘላቂ እድገትን የሚያጎለብቱ ፈጠራዊ መፍትሄዎችን በመስጠት ግለሰቦችን እና ድርጅቶችን ኃይለኛ ማድረግ።",
+    icon: Target // ምሳሌ አዶ፣ በአካል አካፋይ ውስጥ ትክክለኛ ማስገባት ይከናወናል
+  },
+  {
+    title: "የእኛ ራእይ",
+    description:
+      "አወንታዊ ለውጥ የሚያምጣ አስተባባሪ ሆነን ፣ ከፍተኛ እድሎችን ለመፍጠር ቴክኖሎጂ እና የሰው ልጅ አቅም የሚገናኝበትን የወደፊቱን ራእይ ማሳየት።",
+   icon: Eye // ምሳሌ አዶ
+  },
+  {
+    title: "�ላቂ እሴቶቻችን",
+    description:
+      "አገልግሎታችን የሚመራው በእሴቶቻችን ነው። በጥራት የተሞላ ውጤት ለማምጣት የሚረዱን እሴቶቻችን፦ ቅንነት፣ ፈጠራ፣ ትብብር እና የላቀ አፈጻጸም።",
+   icon: Gem // ምሳሌ አዶ
+  },
+]
+
+export const sundaySchoolContent = {
+  title: "አብረን ያለፍነው ጉዞ",
+  paragraphs: [
+    "የእኛ እሁድ ትምህርት ቤት በማህበረሰባችን ውስጥ መንፈሳዊ እድገትን እና ግንዛቤን ለማሳደግ የተወጀ ነው። ለሁሉም እድሜ �ላላ ሰዎች እምነትን ለማጥናት፣ የመጽሐፍ ቅዱስ መርሆዎችን ለመማር እና ዘላቂ ግንኙነቶችን ለመገንባት ምቹ አካባቢ እናቀርባለን።",
+    "በማራኪ ትምህርቶች፣ ተግባራዊ �ለገፎች እና በተግባራዊ ተግባር ላይ በሚደረገው ትኩረት፣ ሰዎች በእምነታቸው ጉዞ ጠንካራ መሠረት እንዲኖራቸው እንሰራለን። ፕሮግራሞቻችን ከትናንሽ ልጆች እስከ አዋቂዎች ድረስ ለተለያዩ የእድሜ ክልሎች ተዘጋጅተው ለሁሉም ተገቢ እና ማጎልበቻ ያለው ተሞክሮ እንዲኖራቸው ይረዳሉ።",
+    "በጋራ መማር እና በድጋፍ የተሞላ መምህርነት ኃይል እናምናለን። የሚደገፉ መምህራን እና በፈቃደኝነት የሚሠሩ አጋሮቻችን ጥያቄዎች የሚበረታቱበት እና እምነት የሚያድግበት �ሚ እና መነሳሳት የሚሰጥ አካባቢ ለመፍጠር ቁርጠኞች ናቸው።",
+  ],
+  quote:
+    "ራእያችን ሰዎች የእግዚአብሔርን ቃል የመዘናጋት ፍቅር እንዲያድግ እና እምነታቸውን በምስጢራዊ መንገዶች እንዲኖሩ ማበረታታት ነው።",
+}
+
+export const churchImageUrl = "/placeholder.svg?height=500&width=500"
+
+
+interface Program {
+  title: string
+  description: string
+  participants: string
+  schedule: string
+}
+
+export const programs: Program[] = [
+  {
+    title: "የመጽሐፍ ቅዱስ ጥናት",
+    description: "ጥልቅ የመጽሐፍ ቅዱስ ትምህርቶችን እና ትንታኔዎችን ያግኙ።",
+   
+    participants: "ለሁሉም ዕድሜ",
+    schedule: "ሰኞ እና ሐሙስ ምሽት",
+  },
+  {
+    title: "የጸሎት እና የአምልኮ ጊዜ",
+    description: "በጋራ ጸሎት እና አምልኮ እግዚአብሔርን እናክብር።",
+   
+    participants: "ሁሉም አማኞች",
+    schedule: "እሁድ ጥዋት",
+  },
+  {
+    title: "የወጣቶች ህብረት",
+    description: "ወጣቶች እምነታቸውን እንዲያጠናክሩ እና እንዲያድጉ የሚረዳ ፕሮግራም።",
+    participants: "ከ15-25 ዓመት",
+    schedule: "ቅዳሜ ከሰዓት",
+  },
+  {
+    title: "የልጆች ትምህርት",
+    description: "ልጆች በመጽሐፍ ቅዱስ ታሪኮች እና መዝሙሮች እንዲማሩ።",
+    participants: "ከ5-12 ዓመት",
+    schedule: "እሁድ ጥዋት",
+  },
+  {
+    title: "የቤተሰብ ምክር",
+    description: "በቤተሰብ ህይወት ውስጥ ለሚነሱ ጉዳዮች መንፈሳዊ ምክር።",
+    participants: "ለቤተሰቦች",
+    schedule: "በቀጠሮ",
+  },
+  {
+    title: "የአገልግሎት ስልጠና",
+    description: "በቤተክርስቲያን ውስጥ ለማገልገል የሚያስችል ስልጠና።",
+    participants: "አገልጋዮች",
+    schedule: "አርብ ምሽት",
+  },
+]
+
+export const contactInfo = {
+  phone: "+251 912 345 678",
+  email: "info@sundayschool.org",
+  serviceHours: "ሰኞ - አርብ: 9:00 AM - 5:00 PM",
+  address: "አዲስ አበባ, ኢትዮጵያ",
 }

@@ -3,13 +3,13 @@ import { Facebook, MessageCircle, Instagram, Youtube } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-yellow-900/15 text-black py-12">
+    <footer className="bg-yellow-900/10 text-yellow-900 py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-yellow-500 to-red-600 rounded-full flex items-center justify-center">
-                <span className="text-black font-bold">✞</span>
+              <div className="w-8 h-8 bg-yellow-900 rounded-full flex items-center justify-center">
+                <span className="text-white font-bold">✞</span>
               </div>
               <div>
                 <h3 className="text-lg font-semibold">EOTC Sunday School</h3>
@@ -22,22 +22,22 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="hover:text-yellow-400">
+                <Link href="/" className="hover:text-yellow-950">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/events" className="hover:text-yellow-400">
+                <Link href="/events" className="hover:text-yellow-950">
                   Events
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-yellow-400">
+                <Link href="/gallery" className="hover:text-yellow-950">
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-yellow-400">
+                <Link href="/contact" className="hover:text-yellow-950">
                   Contact
                 </Link>
               </li>

@@ -1,59 +1,182 @@
 "use client"
 
 import { useState } from "react"
-import { Church, Building2, Landmark } from "lucide-react"
+import { Church, Building2, Landmark, ChevronRight } from "lucide-react"
 import Link from "next/link"
 
-interface StructureTreeProps {}
+type StructureTreeProps = {}
+
 const structureData = [
   {
     id: "diocese1",
-    name: "ሃገረ ስብከት 1",
-    nameAmharic: "ዲዮሴስ 1",
+    name: "አዲስ አበባ ሃገረ ስብከት",
+    nameEnglish: "Addis Ababa Diocese",
     subcities: [
       {
         id: "subcity1",
-        name: "ክፍለ ከተማ 1",
-        nameAmharic: "ክፍለ ከተማ 1",
+        name: "ቦሌ ክፍለ ከተማ",
+        nameEnglish: "Bole Sub-city",
         churches: [
-          { id: "church1", name: "ቤተ ክርስቲያን  1", nameAmharic: "ቤተ ክርስቲያን 1" },
+          {
+            id: "church1",
+            name: "ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን",
+            nameEnglish: "St. George Church",
+          },
+          {
+            id: "church2",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+        ],
+      },
+      {
+        id: "subcity2",
+        name: "ኪርኮስ ክፍለ ከተማ",
+        nameEnglish: "Kirkos Sub-city",
+        churches: [
+          {
+            id: "church3",
+            name: "ቅዱስ ሚካኤል ቤተ ክርስቲያን",
+            nameEnglish: "St. Michael Church",
+          },
+          {
+            id: "church4",
+            name: "ቅዱስ ገብርኤል ቤተ ክርስቲያን",
+            nameEnglish: "St. Gabriel Church",
+          },
         ],
       },
     ],
   },
   {
     id: "diocese2",
-    name: "ሃገረ ስብከት 2",
-    nameAmharic: "ዲዮሴስ 2",
+    name: "ሸዋ ሃገረ ስብከት",
+    nameEnglish: "Shewa Diocese",
     subcities: [
       {
-        id: "subcity2",
-        name: "ክፍለ ከተማ 2",
-        nameAmharic: "ክፍለ ከተማ 2",
+        id: "subcity3",
+        name: "ደብረ ብርሃን ክፍለ ከተማ",
+        nameEnglish: "Debre Birhan Sub-city",
         churches: [
-          { id: "church2", name: "ቤተ ክርስቲያን  2", nameAmharic: "ቤተ ክርስቲያን 2" },
-          { id: "church3", name: "ቤተ ክርስቲያን  3", nameAmharic: "ቤተ ክርስቲያን 3" },
+          {
+            id: "church5",
+            name: "ደብረ ብርሃን ሥላሴ ቤተ ክርስቲያን",
+            nameEnglish: "Debre Birhan Trinity Church",
+          },
+        ],
+      },
+      {
+        id: "subcity4",
+        name: "አዳማ ክፍለ ከተማ",
+        nameEnglish: "Adama Sub-city",
+        churches: [
+          {
+            id: "church6",
+            name: "ቅዱስ ዮሴፍ ቤተ ክርስቲያን",
+            nameEnglish: "St. Joseph Church",
+          },
         ],
       },
     ],
   },
   {
     id: "diocese3",
-    name: "ሃገረ ስብከት 3",
-    nameAmharic: "ዲዮሴስ 3",
-    subcities: [ {
-      id: "subcity3",
-      name: "ክፍለ ከተማ 3",
-      nameAmharic: "ክፍለ ከተማ 3",
-      churches: [
-        { id: "church4", name: "ቤተ ክርስቲያን  4", nameAmharic: "ቤተ ክርስቲያን 4" },
-        { id: "church5", name: "ቤተ ክርስቲያን  5", nameAmharic: "ቤተ ክርስቲያን 5" },
-        { id: "church6", name: "ቤተ ክርስቲያን  6", nameAmharic: "ቤተ ክርስቲያን 6" },
+    name: "ጎንደር ሃገረ ስብከት",
+    nameEnglish: "Gondar Diocese",
+    subcities: [
+      {
+        id: "subcity5",
+        name: "ጎንደር ክፍለ ከተማ",
+        nameEnglish: "Gondar Sub-city",
+        churches: [
+          {
+            id: "church7",
+            name: "ደብረ ብርሃን ሥላሴ ቤተ ክርስቲያን",
+            nameEnglish: "Debre Birhan Trinity Church",
+          },
+          {
+            id: "church8",
+            name: "ቅዱስ ራፋኤል ቤተ ክርስቲያን",
+            nameEnglish: "St. Raphael Church",
+          },
+        ],
+      },
     ],
-    }
-  ]
   },
-];
+    {
+    id: "diocese1",
+    name: "አዲስ አበባ ሃገረ ስብከት",
+    nameEnglish: "Addis Ababa Diocese",
+    subcities: [
+      {
+        id: "subcity1",
+        name: "ቦሌ ክፍለ ከተማ",
+        nameEnglish: "Bole Sub-city",
+        churches: [
+          {
+            id: "church1",
+            name: "ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን",
+            nameEnglish: "St. George Church",
+          },
+          {
+            id: "church2",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+        ],
+      },
+      {
+        id: "subcity2",
+        name: "ኪርኮስ ክፍለ ከተማ",
+        nameEnglish: "Kirkos Sub-city",
+        churches: [
+          {
+            id: "church3",
+            name: "ቅዱስ ሚካኤል ቤተ ክርስቲያን",
+            nameEnglish: "St. Michael Church",
+          },
+          {
+            id: "church4",
+            name: "ቅዱስ ገብርኤል ቤተ ክርስቲያን",
+            nameEnglish: "St. Gabriel Church",
+          },
+        ],
+      },
+    ],
+  },
+   {
+    id: "diocese2",
+    name: "ሸዋ ሃገረ ስብከት",
+    nameEnglish: "Shewa Diocese",
+    subcities: [
+      {
+        id: "subcity3",
+        name: "ደብረ ብርሃን ክፍለ ከተማ",
+        nameEnglish: "Debre Birhan Sub-city",
+        churches: [
+          {
+            id: "church5",
+            name: "ደብረ ብርሃን ሥላሴ ቤተ ክርስቲያን",
+            nameEnglish: "Debre Birhan Trinity Church",
+          },
+        ],
+      },
+      {
+        id: "subcity4",
+        name: "አዳማ ክፍለ ከተማ",
+        nameEnglish: "Adama Sub-city",
+        churches: [
+          {
+            id: "church6",
+            name: "ቅዱስ ዮሴፍ ቤተ ክርስቲያን",
+            nameEnglish: "St. Joseph Church",
+          },
+        ],
+      },
+    ],
+  },
+
+]
 
 export function StructureTree({}: StructureTreeProps) {
   const [selectedDiocese, setSelectedDiocese] = useState<string | null>(null)
@@ -63,75 +186,114 @@ export function StructureTree({}: StructureTreeProps) {
   const selectedSubcityData = selectedDioceseData?.subcities.find((s) => s.id === selectedSubcity)
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm font-mono">
+    <div className="grid grid-cols-3 gap-2- h-100%  overflow-hidden w-100%">
       {/* Column 1: Dioceses */}
-      <div>
-        <h4 className="font-bold mb-2 text-gray-700 flex items-center gap-1">
+      <div className="border-r border-gray-200 pr-4 scroll-smooth max-h-100 overflow-y-auto
+  [&::-webkit-scrollbar]:w-2
+  [&::-webkit-scrollbar-track]:bg-blue-100
+  [&::-webkit-scrollbar-thumb]:bg-blue-300
+  dark:[&::-webkit-scrollbar-track]:bg-blue-700
+  dark:[&::-webkit-scrollbar-thumb]:bg-blue-500">
+        <div className="flex items-center gap-2 mb-4 pb-2 border-b border-gray-100">
           <Landmark className="w-4 h-4 text-yellow-600" />
-          Dioceses
-        </h4>
-        <ul className="space-y-1">
+          <h4 className="font-medium text-gray-800 text-sm">ሃገረ ስብከቶች</h4>
+          <span className="text-xs text-gray-500 ml-auto">{structureData.length}</span>
+        </div>
+        <div className="space-y-1 overflow-y-auto max-h-64 ">
           {structureData.map((diocese) => (
-            <li
+            <div
               key={diocese.id}
-              onMouseEnter={() => setSelectedDiocese(diocese.id)}
-              className={`cursor-pointer p-1 rounded hover:bg-yellow-50 ${
-                selectedDiocese === diocese.id ? "bg-yellow-100 font-semibold" : ""
+              onClick={() => {
+                setSelectedDiocese(diocese.id)
+                setSelectedSubcity(null)
+              }}
+              className={`overflow-y-auto
+  [&::-webkit-scrollbar]:w-2
+  [&::-webkit-scrollbar-track]:bg-gray-100
+  [&::-webkit-scrollbar-thumb]:bg-gray-300
+  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
+  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 cursor-pointer px-3 py-2 rounded-md text-sm transition-colors ${
+                selectedDiocese === diocese.id
+                  ? "bg-yellow-50 text-yellow-800 border-l-2 border-yellow-500"
+                  : "text-gray-700 hover:bg-gray-50"
               }`}
             >
-              {diocese.name} 
-            </li>
+              <div className="font-ethiopic font-medium">{diocese.name}</div>
+              <div className="text-xs text-gray-500 mt-0.5">{diocese.nameEnglish}</div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
 
       {/* Column 2: Subcities */}
-      <div>
-        <h4 className="font-bold mb-2 text-gray-700 flex items-center gap-1">
+      <div className="border-r border-gray-200 pr-4 w=[300px]">
+        <div className="flex items-center gap-2 mb-4 pb-2 border-b border-gray-100">
           <Building2 className="w-4 h-4 text-green-600" />
-          Subcities
-        </h4>
-        {selectedDioceseData ? (
-          <ul className="space-y-1">
-            {selectedDioceseData.subcities.map((subcity) => (
-              <li
+          <h4 className="font-medium text-gray-800 text-sm">ክፍለ ከተሞች</h4>
+          {selectedDioceseData && (
+            <span className="text-xs text-gray-500 ml-auto">{selectedDioceseData.subcities.length}</span>
+          )}
+        </div>
+        <div className="space-y-1 overflow-y-auto max-h-64">
+          {selectedDioceseData ? (
+            selectedDioceseData.subcities.map((subcity) => (
+              <div
                 key={subcity.id}
-                onMouseEnter={() => setSelectedSubcity(subcity.id)}
-                className={`cursor-pointer p-1 rounded hover:bg-green-50 ${
-                  selectedSubcity === subcity.id ? "bg-green-100 font-semibold" : ""
+                onClick={() => setSelectedSubcity(subcity.id)}
+                className={`cursor-pointer px-3 py-2 rounded-md text-sm transition-colors ${
+                  selectedSubcity === subcity.id
+                    ? "bg-green-50 text-green-800 border-l-2 border-green-500"
+                    : "text-gray-700 hover:bg-gray-50"
                 }`}
               >
-                {subcity.name} 
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-gray-400 italic">Hover a Diocese to see Subcities</p>
-        )}
+                <div className="font-ethiopic font-medium">{subcity.name}</div>
+                <div className="text-xs text-gray-500 mt-0.5">{subcity.nameEnglish}</div>
+              </div>
+            ))
+          ) : (
+            <div className="text-center py-8 text-gray-400">
+              <Building2 className="w-8 h-8 mx-auto mb-2 opacity-50" />
+              <p className="text-sm font-ethiopic">ሃገረ ስብከት ይምረጡ</p>
+              <p className="text-xs">Select a diocese</p>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Column 3: Churches */}
       <div>
-        <h4 className="font-bold mb-2 text-gray-700 flex items-center gap-1">
+        <div className="flex items-center gap-2 mb-4 pb-2 border-b border-gray-100 w=[300px]">
           <Church className="w-4 h-4 text-purple-600" />
-          Sunday Schools
-        </h4>
-        {selectedSubcityData ? (
-          <ul className="space-y-1">
-            {selectedSubcityData.churches.map((church) => (
-              <li key={church.id}>
-                <Link
-                  href={`/diocese/${selectedDiocese}/subcity/${selectedSubcity}/church/${church.id}`}
-                  className="block p-1 rounded hover:bg-purple-50 hover:text-purple-700"
-                >
-                  {church.name} 
-                </Link>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-gray-400 italic">Hover a Subcity to see Sunday Schools</p>
-        )}
+          <h4 className="font-medium text-gray-800 text-sm">ሰንበት ት/ቤቶች</h4>
+          {selectedSubcityData && (
+            <span className="text-xs text-gray-500 ml-auto">{selectedSubcityData.churches.length}</span>
+          )}
+        </div>
+        <div className="space-y-1 overflow-y-auto max-h-64 ">
+          {selectedSubcityData ? (
+            selectedSubcityData.churches.map((church) => (
+              <Link
+                key={church.id}
+                href={`/diocese/${selectedDiocese}/subcity/${selectedSubcity}/church/${church.id}`}
+                className="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-800 transition-colors group"
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="font-ethiopic font-medium">{church.name}</div>
+                    <div className="text-xs text-gray-500 mt-0.5">{church.nameEnglish}</div>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                </div>
+              </Link>
+            ))
+          ) : (
+            <div className="text-center py-8 text-gray-400">
+              <Church className="w-8 h-8 mx-auto mb-2 opacity-50" />
+              <p className="text-sm font-ethiopic">ክፍለ ከተማ ይምረጡ</p>
+              <p className="text-xs">Select a sub-city</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

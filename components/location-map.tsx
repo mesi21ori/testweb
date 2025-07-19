@@ -123,7 +123,7 @@ export function LocationMap({ location, apiKey }: LocationMapProps) {
                 href={`https://www.google.com/maps?q=${location.latitude},${location.longitude}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition-colors text-sm"
+                className="inline-block px-4 py-2 bg-yellow-600/80 text-white rounded-md hover:bg-yellow-600 transition-colors text-sm"
               >
                 Open in Google Maps
               </a>
