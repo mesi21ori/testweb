@@ -218,7 +218,7 @@ export function ContactSection() {
                   animate={{ opacity: 1, y: 0 }}
                   className={`p-3 rounded-lg text-sm flex items-center gap-2 ${
                     status.type === "success"
-                      ? "bg-green-100 text-green-700" 
+                      ? "bg-yellow-100 text-yellow-700" 
                       : status.type === "error"
                         ? "bg-red-100 text-red-700" 
                         : "bg-navy/10 text-navy" 

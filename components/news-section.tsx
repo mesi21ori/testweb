@@ -269,7 +269,7 @@ export function Projects() {
                         <motion.span
                           animate={{ opacity: [1, 0.5, 1] }}
                           transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
-                          className="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"
+                          className="inline-block w-2 h-2 bg-yellow-500 rounded-full mr-2"
                         />
                         {currentProject.status}
                       </motion.div>

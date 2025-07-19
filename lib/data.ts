@@ -429,3 +429,97 @@ export const contactInfo = {
   serviceHours: "ሰኞ - አርብ: 9:00 AM - 5:00 PM",
   address: "አዲስ አበባ, ኢትዮጵያ",
 }
+
+
+import type { Event } from "@/types/event"
+
+export async function getEvents(): Promise<Event[]> {
+  // የኔትወርክ መዘግየትን ለማስመሰል
+  await new Promise((resolve) => setTimeout(resolve, 500))
+
+  const now = new Date()
+  const oneDay = 24 * 60 * 60 * 1000 // በአንድ ቀን ውስጥ ያሉ ሚሊሴኮንዶች
+
+  return [
+    {
+      id: "1",
+      title: "ዓመታዊ የወጣቶች ስብሰባ",
+      description: "ለሁሉም ወጣት አባላት የሃይማኖታዊ ስብሰባ፣ እምነት እና የማህበረሰብ ግንባታ ላይ ያተኮረ።",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+      place: "ማውንቴን ቪው ካምፕ",
+      startTime: new Date(now.getTime() + 7 * oneDay), // ከዛሬ በኋላ 7 ቀናት
+      endTime: new Date(now.getTime() + 9 * oneDay), // ከዛሬ በኋላ 9 ቀናት
+      category: "ወጣቶች",
+    },
+    {
+      id: "2",
+      title: "የማህበረሰብ አገልግሎት ፕሮግራም",
+      description: "በአካባቢያችን ማህበረሰብ አገልግሎት ይቀላቀሉን። በፈቃደኝነት የሚሰሩ የሚያስፈልጋሉ!",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+      place: "የከተማ ፓርክ ፓቪሊዮን",
+      startTime: new Date(now.getTime() + 14 * oneDay), // ከዛሬ በኋላ 14 ቀናት
+      endTime: new Date(now.getTime() + 14 * oneDay + 2 * 60 * 60 * 1000), // 2 ሰዓታት በኋላ
+      category: "አገልግሎት",
+    },
+    {
+      id: "3",
+      title: "የመጽሐፍ ቅዱስ ጥናት ተከታታይ፡ የዮሐንስ ወንጌል",
+      description: "በዮሐንስ ወንጌል ላይ ጥልቅ ጥናት። ሁሉም እንዲገኝ ተጋብዟል።",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+      place: "የቤተክርስቲያን ዋና አዳራሽ",
+      startTime: new Date(now.getTime() + 2 * oneDay), // ከዛሬ በኋላ 2 ቀናት
+      endTime: new Date(now.getTime() + 2 * oneDay + 1.5 * 60 * 60 * 1000),
+      category: "ትምህርት",
+    },
+    {
+      id: "4",
+      title: "የአባት ጉብኝት እና በረከት",
+      description: "ልዑሉ ለልዩ የበረከት አገልግሎት በገዛ ቤተክርስቲያናችን ይገኛሉ።",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+      place: "ቅድስት ማርያም ቤተክርስቲያን",
+      startTime: new Date(now.getTime() - 5 * oneDay), // ከዛሬ በፊት 5 ቀናት
+      endTime: new Date(now.getTime() - 5 * oneDay + 3 * 60 * 60 * 1000),
+      category: "ሊተርጂ",
+    },
+    {
+      id: "5",
+      title: "ዓመታዊ ገንዘብ ማሰባሰብ ጋላ",
+      description: "የቤተክርስቲያናችንን ተቋማዊ እንቅስቃሴዎች ይደግፉ። ድንኳን፣ ሽያጭ እና የህብረት ጊዜ።",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+      place: "ግራንድ ቦልሩም ሆቴል",
+      startTime: new Date(now.getFullYear(), now.getMonth() + 1, 10, 18, 0), // በሚቀጥለው ወር
+      endTime: new Date(now.getFullYear(), now.getMonth() + 1, 10, 22, 0),
+      category: "ገንዘብ ማሰባሰብ",
+    },
+    {
+      id: "6",
+      title: "የወጣቶች የስፖርት ቀን",
+      description: "ለሁሉም ወጣቶች አስደሳች ጨዋታዎች። የስፖርት መሳሪያዎችዎን ይዘው ይምጡ!",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+      place: "አካባቢያዊ የስፖርት ኮምፕሌክስ",
+      startTime: new Date(now.getTime() + 21 * oneDay), // ከዛሬ በኋላ 3 ሳምንታት
+      endTime: new Date(now.getTime() + 21 * oneDay + 4 * 60 * 60 * 1000),
+      category: "ወጣቶች",
+    },
+    {
+      id: "7",
+      title: "የመዝሙር ክፍል ልምምድ",
+      description: "ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ። ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ። አዲስ አባላት ተጋብዘዋል። ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ። አዲስ አባላት ተጋብዘዋል።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ። አዲስ አባላት ተጋብዘዋል።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ። አዲስ አባላት ተጋብዘዋል።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ። አዲስ አባላት ተጋብዘዋል።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ። አዲስ አባላት ተጋብዘዋል።ለቤተክርስቲያን የመዝሙር ክፍል ሳምንታዊ ልምምድ። አዲስ አባላት ተጋብዘዋል።",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+      place: "የቤተክርስቲያን የዘፋኝ ክፍል",
+      startTime: new Date(now.getTime() + 1 * oneDay), // ነገ
+      endTime: new Date(now.getTime() + 1 * oneDay + 1.5 * 60 * 60 * 1000),
+      category: "ሙዚቃ",
+    },
+    {
+      id: "8",
+      title: "የቅዱስ ጊዮርጊስ በዓል",
+      description: "ለቅዱስ ጊዮርጊስ በዓል ልዩ ሊተርጂ እና በዓል አከባበር።",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+      place: "ቅዱስ ጊዮርጊስ ቤተክርስቲያን",
+      startTime: new Date(now.getTime() - 10 * oneDay), // ከዛሬ በፊት 10 ቀናት
+      endTime: new Date(now.getTime() - 10 * oneDay + 4 * 60 * 60 * 1000),
+      category: "ሊተርጂ",
+    },
+  ]
+}

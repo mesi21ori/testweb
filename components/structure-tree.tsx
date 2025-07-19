@@ -228,7 +228,7 @@ export function StructureTree({}: StructureTreeProps) {
       {/* Column 2: Subcities */}
       <div className="border-r border-gray-200 pr-4 w=[300px]">
         <div className="flex items-center gap-2 mb-4 pb-2 border-b border-gray-100">
-          <Building2 className="w-4 h-4 text-green-600" />
+          <Building2 className="w-4 h-4 text-yellow-600" />
           <h4 className="font-medium text-gray-800 text-sm">ክፍለ ከተሞች</h4>
           {selectedDioceseData && (
             <span className="text-xs text-gray-500 ml-auto">{selectedDioceseData.subcities.length}</span>
@@ -242,7 +242,7 @@ export function StructureTree({}: StructureTreeProps) {
                 onClick={() => setSelectedSubcity(subcity.id)}
                 className={`cursor-pointer px-3 py-2 rounded-md text-sm transition-colors ${
                   selectedSubcity === subcity.id
-                    ? "bg-green-50 text-green-800 border-l-2 border-green-500"
+                    ? "bg-yellow-50 text-yellow-800 border-l-2 border-yellow-500"
                     : "text-gray-700 hover:bg-gray-50"
                 }`}
               >

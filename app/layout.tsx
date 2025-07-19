@@ -2,6 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Noto_Sans_Ethiopic } from "next/font/google"
 import "./globals.css"
+import { Header } from "@/components/header"
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,6 +23,12 @@ export const metadata: Metadata = {
   description: "Official portal for Ethiopian Orthodox Sunday Schools across dioceses, subcities, and churches",
 }
 
+interface Breadcrumb {
+  name: string
+  href: string
+}
+
+
 export default function RootLayout({
   children,
 }: {
@@ -28,7 +36,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${notoSansEthiopic.variable}`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <Header />
+        {children}</body>
     </html>
   )
 }
