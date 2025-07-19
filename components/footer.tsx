@@ -3,11 +3,15 @@ import { Facebook, MessageCircle, Instagram, Youtube } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-yellow-900/10 text-yellow-900 py-12">
+    <footer className="bg-yellow-900/10 text-yellow-900 py-8 md:py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <div className="flex items-center space-x-3 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
+          <div className="text-center md:text-left">
+            {" "}
+            {/* Added text-center for small screens, md:text-left for larger */}
+            <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
+              {" "}
+              {/* Added justify-center for small screens, md:justify-start for larger */}
               <div className="w-8 h-8 bg-yellow-900 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold">✞</span>
               </div>
@@ -17,8 +21,9 @@ export function Footer() {
               </div>
             </div>
           </div>
-
-          <div>
+          <div className="text-center md:text-left">
+            {" "}
+            {/* Added text-center for small screens, md:text-left for larger */}
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
@@ -43,8 +48,9 @@ export function Footer() {
               </li>
             </ul>
           </div>
-
-          <div>
+          <div className="text-center md:text-left">
+            {" "}
+            {/* Added text-center for small screens, md:text-left for larger */}
             <h3 className="text-lg font-semibold mb-4">Church Structure</h3>
             <ul className="space-y-2">
               <li>
@@ -64,10 +70,13 @@ export function Footer() {
               </li>
             </ul>
           </div>
-
-          <div>
+          <div className="text-center md:text-left">
+            {" "}
+            {/* Added text-center for small screens, md:text-left for larger */}
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center md:justify-start">
+              {" "}
+              {/* Added justify-center for small screens, md:justify-start for larger */}
               <Facebook className="w-6 h-6 hover:text-yellow-400 cursor-pointer" />
               <MessageCircle className="w-6 h-6 hover:text-yellow-400 cursor-pointer" />
               <Instagram className="w-6 h-6 hover:text-yellow-400 cursor-pointer" />
@@ -75,7 +84,6 @@ export function Footer() {
             </div>
           </div>
         </div>
-
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p>&copy; 2024 Ethiopian Orthodox Tewahedo Church - Sunday School Unity. All rights reserved.</p>
           <p className="text-sm text-gray-400 mt-2">የኢትዮጵያ ቀዳማዊ ተዋሕዶ ቤተክርስቲያን ሰንበት ት/ቤቶች አንድነት</p>
