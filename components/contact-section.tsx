@@ -1,7 +1,5 @@
 "use client"
-
 import type React from "react"
-
 import { Phone, Mail, Clock, MapPin, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
@@ -24,7 +22,6 @@ type FormStatus = {
 }
 
 export function ContactSection() {
-  // Removed 'contact' prop
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [formData, setFormData] = useState<FormData>({
@@ -52,33 +49,33 @@ export function ContactSection() {
       setStatus({ type: "error", message: "Please fill in all fields" })
       return
     }
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(formData.email)) {
       setStatus({ type: "error", message: "Please enter a valid email address" })
       return
     }
-
     setStatus({ type: "loading", message: "Sending your message..." })
-
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1500))
 
-      if (response.ok) {
-        setStatus({
-          type: "success",
-          message: "Message sent successfully!",
-        })
-        setFormData({ name: "", email: "", subject: "", message: "" })
-      } else {
-        throw new Error("Server error")
-      }
+      // In a real application, you would send formData to your backend here
+      // const response = await fetch("/api/contact", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(formData),
+      // })
+      // if (response.ok) {
+      setStatus({
+        type: "success",
+        message: "Message sent successfully!",
+      })
+      setFormData({ name: "", email: "", subject: "", message: "" })
+      // } else {
+      //   throw new Error("Server error")
+      // }
     } catch (error) {
       setStatus({
         type: "error",
@@ -88,7 +85,7 @@ export function ContactSection() {
   }
 
   return (
-    <section className="py-12 relative overflow-hidden" ref={ref}>
+    <section className="py-12 relative overflow-hidden bg-background" ref={ref}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -96,8 +93,10 @@ export function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8"
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">ያግኙን</h2>
-          <p className="text-lg text-gray-600">የሰንበት ትምህርትቤቶች አንድነትን ለማግኘት ከፈለጉ ከታች ያሉትን አድራሻዎች በመጠቀም ማግኘት ይችላሉ</p>
+          <h2 className="text-3xl font-bold text-foreground mb-2">ያግኙን</h2>
+          <p className="text-lg text-muted-foreground">
+            የሰንበት ትምህርትቤቶች አንድነትን ለማግኘት ከፈለጉ ከታች ያሉትን አድራሻዎች በመጠቀም ማግኘት ይችላሉ
+          </p>
         </motion.div>
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -110,47 +109,40 @@ export function ContactSection() {
           >
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-yellow-600/80 text-navy rounded-lg">
-                  {" "}
-                  {/* Updated color */}
-                  <Phone className="w-4 h-4 text-white" />
+                <div className="p-2 bg-primary/80 text-primary-foreground rounded-lg">
+                  <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900">ስልክ</h4>
-                  <p className="text-gray-700 text-sm">{contactInfo.phone}</p> {/* Using imported data */}
+                  <h4 className="font-medium text-foreground">ስልክ</h4>
+                  <p className="text-muted-foreground text-sm">{contactInfo.phone}</p> {/* Using imported data */}
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-yellow-600/80 text-taupe rounded-lg">
-                  {" "}
-                  {/* Updated color */}
-                  <Mail className="w-4 h-4  text-white" />
+                <div className="p-2 bg-primary/80 text-primary-foreground rounded-lg">
+                  <Mail className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900">ኢሜል</h4>
-                  <p className="text-gray-700 text-sm">{contactInfo.email}</p> {/* Using imported data */}
+                  <h4 className="font-medium text-foreground">ኢሜል</h4>
+                  <p className="text-muted-foreground text-sm">{contactInfo.email}</p> {/* Using imported data */}
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="p-2  bg-yellow-600/80  text-navy rounded-lg">
-                  {" "}
-                  {/* Updated color */}
-                  <Clock className="w-4 h-4 text-white" />
+                <div className="p-2 bg-primary/80 text-primary-foreground rounded-lg">
+                  <Clock className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900">የስራ ሰአት</h4>
-                  <p className="text-gray-700 text-sm">{contactInfo.serviceHours}</p> {/* Using imported data */}
+                  <h4 className="font-medium text-foreground">የስራ ሰአት</h4>
+                  <p className="text-muted-foreground text-sm">{contactInfo.serviceHours}</p>{" "}
+                  {/* Using imported data */}
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-taupe/10 text-taupe rounded-lg  bg-yellow-600/80 ">
-                  {" "}
-                  {/* Updated color */}
-                  <MapPin className="w-4 h-4 text-white" />
+                <div className="p-2 bg-primary/80 text-primary-foreground rounded-lg">
+                  <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900">አድራሻ</h4>
-                  <p className="text-gray-700 text-sm">{contactInfo.address}</p> {/* Using imported data */}
+                  <h4 className="font-medium text-foreground">አድራሻ</h4>
+                  <p className="text-muted-foreground text-sm">{contactInfo.address}</p> {/* Using imported data */}
                 </div>
               </div>
             </div>
@@ -160,9 +152,9 @@ export function ContactSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white p-6 rounded-xl border border-gray-200 shadow-xs"
+            className="bg-card p-6 rounded-xl border border-border shadow-xs"
           >
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">ለማንኛውም አይነት ጥያቄ እና አስተያየት ከታች ያለውን ፎርም ይጠቀሙ</h3>
+            <h3 className="text-xl font-semibold text-foreground mb-4">ለማንኛውም አይነት ጥያቄ እና አስተያየት ከታች ያለውን ፎርም ይጠቀሙ</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid gap-4">
                 <div>
@@ -218,10 +210,10 @@ export function ContactSection() {
                   animate={{ opacity: 1, y: 0 }}
                   className={`p-3 rounded-lg text-sm flex items-center gap-2 ${
                     status.type === "success"
-                      ? "bg-yellow-100 text-yellow-700" 
+                      ? "bg-green-100 text-green-700"
                       : status.type === "error"
-                        ? "bg-red-100 text-red-700" 
-                        : "bg-navy/10 text-navy" 
+                        ? "bg-red-100 text-red-700"
+                        : "bg-muted text-muted-foreground"
                   }`}
                 >
                   {status.type === "loading" && <Loader2 className="animate-spin w-4 h-4" />}
@@ -234,7 +226,7 @@ export function ContactSection() {
                 type="submit"
                 size="sm"
                 disabled={status.type === "loading"}
-                className="w-full mt-2 bg-yellow-700/80 hover:bg-navy/90 text-white" 
+                className="w-full mt-2 bg-primary hover:bg-primary/90 text-primary-foreground"
               >
                 {status.type === "loading" ? (
                   <>

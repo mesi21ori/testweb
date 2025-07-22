@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Inter, Noto_Sans_Ethiopic } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/header"
-
+import { ThemeProvider } from "@/components/theme-provider" // Import ThemeProvider
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,17 +28,23 @@ interface Breadcrumb {
   href: string
 }
 
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${notoSansEthiopic.variable}`}>
-      <body className="font-sans">
-        <Header />
-        {children}</body>
+    <html lang="en" className={`${inter.variable} ${notoSansEthiopic.variable}`} suppressHydrationWarning>
+      <body className="font-sans bg-background text-foreground">
+        {" "}
+        {/* Apply background and foreground colors */}
+        <ThemeProvider defaultTheme="team-theme">
+          {" "}
+          {/* Wrap children with ThemeProvider */}
+          <Header />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

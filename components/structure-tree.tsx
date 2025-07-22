@@ -23,7 +23,52 @@ const structureData = [
             nameEnglish: "St. George Church",
           },
           {
-            id: "church2",
+            id: "church3",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+          {
+            id: "church4",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+          {
+            id: "church5",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+          {
+            id: "church6",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+          {
+            id: "church7",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+          {
+            id: "church8",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+          {
+            id: "church9",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+          {
+            id: "church10",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+          {
+            id: "church11",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+          {
+            id: "church12",
             name: "ቅድስት ማርያም ቤተ ክርስቲያን",
             nameEnglish: "St. Mary Church",
           },
@@ -49,7 +94,7 @@ const structureData = [
     ],
   },
   {
-    id: "diocese2",
+    id: "diocese4",
     name: "ሸዋ ሃገረ ስብከት",
     nameEnglish: "Shewa Diocese",
     subcities: [
@@ -80,7 +125,7 @@ const structureData = [
     ],
   },
   {
-    id: "diocese3",
+    id: "diocese6",
     name: "ጎንደር ሃገረ ስብከት",
     nameEnglish: "Gondar Diocese",
     subcities: [
@@ -103,8 +148,8 @@ const structureData = [
       },
     ],
   },
-    {
-    id: "diocese1",
+  {
+    id: "diocese8",
     name: "አዲስ አበባ ሃገረ ስብከት",
     nameEnglish: "Addis Ababa Diocese",
     subcities: [
@@ -144,7 +189,69 @@ const structureData = [
       },
     ],
   },
-   {
+  {
+    id: "diocese9",
+    name: "ሸዋ ሃገረ ስብከት",
+    nameEnglish: "Shewa Diocese",
+    subcities: [
+      {
+        id: "subcity3",
+        name: "ደብረ ብርሃን ክፍለ ከተማ",
+        nameEnglish: "Debre Birhan Sub-city",
+        churches: [
+          {
+            id: "church5",
+            name: "ደብረ ብርሃን ሥላሴ ቤተ ክርስቲያን",
+            nameEnglish: "Debre Birhan Trinity Church",
+          },
+        ],
+      },
+      {
+        id: "subcity4",
+        name: "አዳማ ክፍለ ከተማ",
+        nameEnglish: "Adama Sub-city",
+        churches: [
+          {
+            id: "church6",
+            name: "ቅዱስ ዮሴፍ ቤተ ክርስቲያን",
+            nameEnglish: "St. Joseph Church",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "diocese10",
+    name: "ሸዋ ሃገረ ስብከት",
+    nameEnglish: "Shewa Diocese",
+    subcities: [
+      {
+        id: "subcity3",
+        name: "ደብረ ብርሃን ክፍለ ከተማ",
+        nameEnglish: "Debre Birhan Sub-city",
+        churches: [
+          {
+            id: "church5",
+            name: "ደብረ ብርሃን ሥላሴ ቤተ ክርስቲያን",
+            nameEnglish: "Debre Birhan Trinity Church",
+          },
+        ],
+      },
+      {
+        id: "subcity4",
+        name: "አዳማ ክፍለ ከተማ",
+        nameEnglish: "Adama Sub-city",
+        churches: [
+          {
+            id: "church6",
+            name: "ቅዱስ ዮሴፍ ቤተ ክርስቲያን",
+            nameEnglish: "St. Joseph Church",
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: "diocese2",
     name: "ሸዋ ሃገረ ስብከት",
     nameEnglish: "Shewa Diocese",
@@ -175,7 +282,6 @@ const structureData = [
       },
     ],
   },
-
 ]
 
 export function StructureTree({}: StructureTreeProps) {
@@ -186,55 +292,52 @@ export function StructureTree({}: StructureTreeProps) {
   const selectedSubcityData = selectedDioceseData?.subcities.find((s) => s.id === selectedSubcity)
 
   return (
-    <div className="grid grid-cols-3 gap-2- h-100%  overflow-hidden w-100%">
+    <div className="grid grid-cols-3 gap-4 w-full h-[80vh]">
       {/* Column 1: Dioceses */}
-      <div className="border-r border-gray-200 pr-4 scroll-smooth max-h-100 overflow-y-auto
-  [&::-webkit-scrollbar]:w-2
-  [&::-webkit-scrollbar-track]:bg-blue-100
-  [&::-webkit-scrollbar-thumb]:bg-blue-300
-  dark:[&::-webkit-scrollbar-track]:bg-blue-700
-  dark:[&::-webkit-scrollbar-thumb]:bg-blue-500">
-        <div className="flex items-center gap-2 mb-4 pb-2 border-b border-gray-100">
-          <Landmark className="w-4 h-4 text-yellow-600" />
-          <h4 className="font-medium text-gray-800 text-sm">ሃገረ ስብከቶች</h4>
-          <span className="text-xs text-gray-500 ml-auto">{structureData.length}</span>
+      <div className="border-r border-border pr-4 flex flex-col">
+        {/* Sticky header */}
+        <div className="bg-background dark:bg-background pb-2 border-b border-border sticky top-0 z-10">
+          <div className="flex items-center gap-2 mb-2">
+            <Landmark className="w-4 h-4 text-primary" />
+            <h4 className="font-medium text-foreground text-sm">ሃገረ ስብከቶች</h4>
+            <span className="text-xs text-muted-foreground ml-auto">{structureData.length}</span>
+          </div>
         </div>
-        <div className="space-y-1 overflow-y-auto max-h-64 ">
-          {structureData.map((diocese) => (
-            <div
-              key={diocese.id}
-              onClick={() => {
-                setSelectedDiocese(diocese.id)
-                setSelectedSubcity(null)
-              }}
-              className={`overflow-y-auto
-  [&::-webkit-scrollbar]:w-2
-  [&::-webkit-scrollbar-track]:bg-gray-100
-  [&::-webkit-scrollbar-thumb]:bg-gray-300
-  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
-  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 cursor-pointer px-3 py-2 rounded-md text-sm transition-colors ${
-                selectedDiocese === diocese.id
-                  ? "bg-yellow-50 text-yellow-800 border-l-2 border-yellow-500"
-                  : "text-gray-700 hover:bg-gray-50"
-              }`}
-            >
-              <div className="font-ethiopic font-medium">{diocese.name}</div>
-              <div className="text-xs text-gray-500 mt-0.5">{diocese.nameEnglish}</div>
-            </div>
-          ))}
+        {/* Scrollable content */}
+        <div className="overflow-y-auto scrollbar-hide flex-1">
+          <div className="space-y-1">
+            {structureData.map((diocese) => (
+              <div
+                key={diocese.id}
+                onClick={() => {
+                  setSelectedDiocese(diocese.id)
+                  setSelectedSubcity(null)
+                }}
+                className={`cursor-pointer px-3 py-2 rounded-md text-sm transition-colors ${
+                  selectedDiocese === diocese.id
+                    ? "bg-accent text-accent-foreground border-l-2 border-primary"
+                    : "text-foreground hover:bg-muted"
+                }`}
+              >
+                <div className="font-ethiopic font-medium">{diocese.name}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{diocese.nameEnglish}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
       {/* Column 2: Subcities */}
-      <div className="border-r border-gray-200 pr-4 w=[300px]">
-        <div className="flex items-center gap-2 mb-4 pb-2 border-b border-gray-100">
-          <Building2 className="w-4 h-4 text-yellow-600" />
-          <h4 className="font-medium text-gray-800 text-sm">ክፍለ ከተሞች</h4>
-          {selectedDioceseData && (
-            <span className="text-xs text-gray-500 ml-auto">{selectedDioceseData.subcities.length}</span>
-          )}
+      <div className="border-r border-border pr-4 overflow-y-auto scrollbar-hide">
+        <div className="sticky top-0 bg-background dark:bg-background z-10 pb-2 border-b border-border">
+          <div className="flex items-center gap-2 mb-2">
+            <Building2 className="w-4 h-4 text-primary" />
+            <h4 className="font-medium text-foreground text-sm">ክፍለ ከተሞች</h4>
+            {selectedDioceseData && (
+              <span className="text-xs text-muted-foreground ml-auto">{selectedDioceseData.subcities.length}</span>
+            )}
+          </div>
         </div>
-        <div className="space-y-1 overflow-y-auto max-h-64">
+        <div className="space-y-1">
           {selectedDioceseData ? (
             selectedDioceseData.subcities.map((subcity) => (
               <div
@@ -242,16 +345,16 @@ export function StructureTree({}: StructureTreeProps) {
                 onClick={() => setSelectedSubcity(subcity.id)}
                 className={`cursor-pointer px-3 py-2 rounded-md text-sm transition-colors ${
                   selectedSubcity === subcity.id
-                    ? "bg-yellow-50 text-yellow-800 border-l-2 border-yellow-500"
-                    : "text-gray-700 hover:bg-gray-50"
+                    ? "bg-accent text-accent-foreground border-l-2 border-primary"
+                    : "text-foreground hover:bg-muted"
                 }`}
               >
                 <div className="font-ethiopic font-medium">{subcity.name}</div>
-                <div className="text-xs text-gray-500 mt-0.5">{subcity.nameEnglish}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{subcity.nameEnglish}</div>
               </div>
             ))
           ) : (
-            <div className="text-center py-8 text-gray-400">
+            <div className="text-center py-8 text-muted-foreground">
               <Building2 className="w-8 h-8 mx-auto mb-2 opacity-50" />
               <p className="text-sm font-ethiopic">ሃገረ ስብከት ይምረጡ</p>
               <p className="text-xs">Select a diocese</p>
@@ -259,35 +362,36 @@ export function StructureTree({}: StructureTreeProps) {
           )}
         </div>
       </div>
-
       {/* Column 3: Churches */}
-      <div>
-        <div className="flex items-center gap-2 mb-4 pb-2 border-b border-gray-100 w=[300px]">
-          <Church className="w-4 h-4 text-purple-600" />
-          <h4 className="font-medium text-gray-800 text-sm">ሰንበት ት/ቤቶች</h4>
-          {selectedSubcityData && (
-            <span className="text-xs text-gray-500 ml-auto">{selectedSubcityData.churches.length}</span>
-          )}
+      <div className="overflow-y-auto scrollbar-hide">
+        <div className="sticky top-0 bg-background dark:bg-background z-10 pb-2 border-b border-border">
+          <div className="flex items-center gap-2 mb-2">
+            <Church className="w-4 h-4 text-primary" />
+            <h4 className="font-medium text-foreground text-sm">ሰንበት ቤተ ክርስቲያኖች</h4>
+            {selectedSubcityData && (
+              <span className="text-xs text-muted-foreground ml-auto">{selectedSubcityData.churches.length}</span>
+            )}
+          </div>
         </div>
-        <div className="space-y-1 overflow-y-auto max-h-64 ">
+        <div className="space-y-1">
           {selectedSubcityData ? (
             selectedSubcityData.churches.map((church) => (
               <Link
                 key={church.id}
                 href={`/diocese/${selectedDiocese}/subcity/${selectedSubcity}/church/${church.id}`}
-                className="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-800 transition-colors group"
+                className="block px-3 py-2 rounded-md text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors group"
               >
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="font-ethiopic font-medium">{church.name}</div>
-                    <div className="text-xs text-gray-500 mt-0.5">{church.nameEnglish}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{church.nameEnglish}</div>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                  <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
               </Link>
             ))
           ) : (
-            <div className="text-center py-8 text-gray-400">
+            <div className="text-center py-8 text-muted-foreground">
               <Church className="w-8 h-8 mx-auto mb-2 opacity-50" />
               <p className="text-sm font-ethiopic">ክፍለ ከተማ ይምረጡ</p>
               <p className="text-xs">Select a sub-city</p>

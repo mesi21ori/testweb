@@ -382,7 +382,7 @@ interface Program {
   schedule: string
 }
 
-export const programs: Program[] = [
+export const PROGRAMS= [
   {
     title: "የመጽሐፍ ቅዱስ ጥናት",
     description: "ጥልቅ የመጽሐፍ ቅዱስ ትምህርቶችን እና ትንታኔዎችን ያግኙ።",
@@ -522,4 +522,470 @@ export async function getEvents(): Promise<Event[]> {
       category: "ሊተርጂ",
     },
   ]
+}
+
+export const structureData = [
+  {
+    id: "diocese1",
+    name: "አዲስ አበባ ሃገረ ስብከት",
+    nameEnglish: "Addis Ababa Diocese",
+    subcities: [
+      {
+        id: "subcity1",
+        name: "ቦሌ ክፍለ ከተማ",
+        nameEnglish: "Bole Sub-city",
+        churches: [
+          {
+            id: "church1",
+            name: "ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን",
+            nameEnglish: "St. George Church",
+          },
+          {
+            id: "church3",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+          {
+            id: "church4",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+          {
+            id: "church5",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },{
+            id: "church6",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },{
+            id: "church7",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },{
+            id: "church8",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },{
+            id: "church9",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },{
+            id: "church10",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },{
+            id: "church11",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },{
+            id: "church12",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+        ],
+      },
+      {
+        id: "subcity2",
+        name: "ኪርኮስ ክፍለ ከተማ",
+        nameEnglish: "Kirkos Sub-city",
+        churches: [
+          {
+            id: "church3",
+            name: "ቅዱስ ሚካኤል ቤተ ክርስቲያን",
+            nameEnglish: "St. Michael Church",
+          },
+          {
+            id: "church4",
+            name: "ቅዱስ ገብርኤል ቤተ ክርስቲያን",
+            nameEnglish: "St. Gabriel Church",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "diocese4",
+    name: "ሸዋ ሃገረ ስብከት",
+    nameEnglish: "Shewa Diocese",
+    subcities: [
+      {
+        id: "subcity3",
+        name: "ደብረ ብርሃን ክፍለ ከተማ",
+        nameEnglish: "Debre Birhan Sub-city",
+        churches: [
+          {
+            id: "church5",
+            name: "ደብረ ብርሃን ሥላሴ ቤተ ክርስቲያን",
+            nameEnglish: "Debre Birhan Trinity Church",
+          },
+        ],
+      },
+      {
+        id: "subcity4",
+        name: "አዳማ ክፍለ ከተማ",
+        nameEnglish: "Adama Sub-city",
+        churches: [
+          {
+            id: "church6",
+            name: "ቅዱስ ዮሴፍ ቤተ ክርስቲያን",
+            nameEnglish: "St. Joseph Church",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "diocese6",
+    name: "ጎንደር ሃገረ ስብከት",
+    nameEnglish: "Gondar Diocese",
+    subcities: [
+      {
+        id: "subcity5",
+        name: "ጎንደር ክፍለ ከተማ",
+        nameEnglish: "Gondar Sub-city",
+        churches: [
+          {
+            id: "church7",
+            name: "ደብረ ብርሃን ሥላሴ ቤተ ክርስቲያን",
+            nameEnglish: "Debre Birhan Trinity Church",
+          },
+          {
+            id: "church8",
+            name: "ቅዱስ ራፋኤል ቤተ ክርስቲያን",
+            nameEnglish: "St. Raphael Church",
+          },
+        ],
+      },
+    ],
+  },
+    {
+    id: "diocese8",
+    name: "አዲስ አበባ ሃገረ ስብከት",
+    nameEnglish: "Addis Ababa Diocese",
+    subcities: [
+      {
+        id: "subcity1",
+        name: "ቦሌ ክፍለ ከተማ",
+        nameEnglish: "Bole Sub-city",
+        churches: [
+          {
+            id: "church1",
+            name: "ቅዱስ ጊዮርጊስ ቤተ ክርስቲያን",
+            nameEnglish: "St. George Church",
+          },
+          {
+            id: "church2",
+            name: "ቅድስት ማርያም ቤተ ክርስቲያን",
+            nameEnglish: "St. Mary Church",
+          },
+        ],
+      },
+      {
+        id: "subcity2",
+        name: "ኪርኮስ ክፍለ ከተማ",
+        nameEnglish: "Kirkos Sub-city",
+        churches: [
+          {
+            id: "church3",
+            name: "ቅዱስ ሚካኤል ቤተ ክርስቲያን",
+            nameEnglish: "St. Michael Church",
+          },
+          {
+            id: "church4",
+            name: "ቅዱስ ገብርኤል ቤተ ክርስቲያን",
+            nameEnglish: "St. Gabriel Church",
+          },
+        ],
+      },
+    ],
+  },
+   {
+    id: "diocese9",
+    name: "ሸዋ ሃገረ ስብከት",
+    nameEnglish: "Shewa Diocese",
+    subcities: [
+      {
+        id: "subcity3",
+        name: "ደብረ ብርሃን ክፍለ ከተማ",
+        nameEnglish: "Debre Birhan Sub-city",
+        churches: [
+          {
+            id: "church5",
+            name: "ደብረ ብርሃን ሥላሴ ቤተ ክርስቲያን",
+            nameEnglish: "Debre Birhan Trinity Church",
+          },
+        ],
+      },
+      {
+        id: "subcity4",
+        name: "አዳማ ክፍለ ከተማ",
+        nameEnglish: "Adama Sub-city",
+        churches: [
+          {
+            id: "church6",
+            name: "ቅዱስ ዮሴፍ ቤተ ክርስቲያን",
+            nameEnglish: "St. Joseph Church",
+          },
+        ],
+      },
+    ],
+  },
+   {
+    id: "diocese10",
+    name: "ሸዋ ሃገረ ስብከት",
+    nameEnglish: "Shewa Diocese",
+    subcities: [
+      {
+        id: "subcity3",
+        name: "ደብረ ብርሃን ክፍለ ከተማ",
+        nameEnglish: "Debre Birhan Sub-city",
+        churches: [
+          {
+            id: "church5",
+            name: "ደብረ ብርሃን ሥላሴ ቤተ ክርስቲያን",
+            nameEnglish: "Debre Birhan Trinity Church",
+          },
+        ],
+      },
+      {
+        id: "subcity4",
+        name: "አዳማ ክፍለ ከተማ",
+        nameEnglish: "Adama Sub-city",
+        churches: [
+          {
+            id: "church6",
+            name: "ቅዱስ ዮሴፍ ቤተ ክርስቲያን",
+            nameEnglish: "St. Joseph Church",
+          },
+        ],
+      },
+    ],
+  },
+     {
+    id: "diocese2",
+    name: "ሸዋ ሃገረ ስብከት",
+    nameEnglish: "Shewa Diocese",
+    subcities: [
+      {
+        id: "subcity3",
+        name: "ደብረ ብርሃን ክፍለ ከተማ",
+        nameEnglish: "Debre Birhan Sub-city",
+        churches: [
+          {
+            id: "church5",
+            name: "ደብረ ብርሃን ሥላሴ ቤተ ክርስቲያን",
+            nameEnglish: "Debre Birhan Trinity Church",
+          },
+        ],
+      },
+      {
+        id: "subcity4",
+        name: "አዳማ ክፍለ ከተማ",
+        nameEnglish: "Adama Sub-city",
+        churches: [
+          {
+            id: "church6",
+            name: "ቅዱስ ዮሴፍ ቤተ ክርስቲያን",
+            nameEnglish: "St. Joseph Church",
+          },
+        ],
+      },
+    ],
+  },
+     {
+    id: "diocese2",
+    name: "ሸዋ ሃገረ ስብከት",
+    nameEnglish: "Shewa Diocese",
+    subcities: [
+      {
+        id: "subcity3",
+        name: "ደብረ ብርሃን ክፍለ ከተማ",
+        nameEnglish: "Debre Birhan Sub-city",
+        churches: [
+          {
+            id: "church5",
+            name: "ደብረ ብርሃን ሥላሴ ቤተ ክርስቲያን",
+            nameEnglish: "Debre Birhan Trinity Church",
+          },
+        ],
+      },
+      {
+        id: "subcity4",
+        name: "አዳማ ክፍለ ከተማ",
+        nameEnglish: "Adama Sub-city",
+        churches: [
+          {
+            id: "church6",
+            name: "ቅዱስ ዮሴፍ ቤተ ክርስቲያን",
+            nameEnglish: "St. Joseph Church",
+          },
+        ],
+      },
+    ],
+  },
+]
+
+export interface PhotoItem {
+  id: string // Unique ID for this group of photos
+  images: string[] // Array of image URLs for this item
+  alt: string // Main alt text for the group/thumbnail
+  description: string // Description for this group of photos
+}
+
+export interface Category {
+  id: string
+  name: string // Amharic category name
+  nameEnglish: string // English category name
+  photoItems: PhotoItem[] // Array of photo groups
+}
+
+// Example Data: In a real application, this would be fetched dynamically from a database
+export const galleryData: Category[] = [
+  {
+    id: "events",
+    name: "ዝግጅቶች",
+    nameEnglish: "Events",
+    photoItems: [
+      {
+        id: "event1",
+        images: [
+          "/placeholder.svg?height=400&width=600&text=Event 1 Img 1",
+          "/placeholder.svg?height=400&width=600&text=Event 1 Img 2",
+          "/placeholder.svg?height=400&width=600&text=Event 1 Img 3",
+        ],
+        alt: "Church gathering during an event",
+        description:
+          "A vibrant gathering of the faithful during a special church event, including choir performance and a religious procession. This description can be quite long to test the scrolling behavior within the dialog. We need to ensure that no part of this text is ever cut off, regardless of the screen size. This text will wrap and the dialog should expand vertically or become scrollable.",
+      },
+      {
+        id: "event2",
+        images: [
+          "/placeholder.svg?height=400&width=600&text=Event 2 Img 1",
+          "/placeholder.svg?height=400&width=600&text=Event 2 Img 2",
+        ],
+        alt: "Community service and baptism",
+        description: "Church members engaging in community service and a sacred baptism ceremony.",
+      },
+    ],
+  },
+  {
+    id: "buildings",
+    name: "ህንፃዎች",
+    nameEnglish: "Buildings",
+    photoItems: [
+      {
+        id: "building1",
+        images: [
+          "/placeholder.svg?height=400&width=600&text=Building 1 Img 1",
+          "/placeholder.svg?height=400&width=600&text=Building 1 Img 2",
+        ],
+        alt: "Exterior and interior of church",
+        description:
+          "The majestic exterior and serene interior of a traditional Ethiopian Orthodox church, focusing on the sacred altar.",
+      },
+      {
+        id: "building2",
+        images: [
+          "/placeholder.svg?height=400&width=600&text=Building 2 Img 1",
+          "/placeholder.svg?height=400&width=600&text=Building 2 Img 2",
+          "/placeholder.svg?height=400&width=600&text=Building 2 Img 3",
+        ],
+        alt: "Ancient monastery and architectural details",
+        description:
+          "An ancient monastery carved into rock, showcasing intricate architectural details and beautiful frescoes.",
+      },
+    ],
+  },
+  {
+    id: "icons",
+    name: "አይኮኖች",
+    nameEnglish: "Icons",
+    photoItems: [
+      {
+        id: "icon1",
+        images: [
+          "/placeholder.svg?height=400&width=600&text=Icon 1 Img 1",
+          "/placeholder.svg?height=400&width=600&text=Icon 1 Img 2",
+          "/placeholder.svg?height=400&width=600&text=Icon 1 Img 3",
+        ],
+        alt: "Collection of religious icons",
+        description:
+          "A collection of beautifully painted religious icons, including Saint George and the Virgin Mary with Jesus.",
+      },
+    ],
+  },
+  {
+    id: "ceremonies",
+    name: "በዓላት",
+    nameEnglish: "Ceremonies",
+    photoItems: [
+      {
+        id: "ceremony1",
+        images: [
+          "/placeholder.svg?height=400&width=600&text=Ceremony 1 Img 1",
+          "/placeholder.svg?height=400&width=600&text=Ceremony 1 Img 2",
+        ],
+        alt: "Timket and Meskel Festivals",
+        description: "Photos from vibrant Timket and Meskel religious festivals.",
+      },
+    ],
+  },
+  {
+    id: "community",
+    name: "ማህበረሰብ",
+    nameEnglish: "Community",
+    photoItems: [
+      {
+        id: "community1",
+        images: [
+          "/placeholder.svg?height=400&width=600&text=Community 1 Img 1",
+          "/placeholder.svg?height=400&width=600&text=Community 1 Img 2",
+        ],
+        alt: "Church Community Life",
+        description:
+          "Images depicting various aspects of church community life, including youth groups and elderly parishioners.",
+      },
+    ],
+  },
+  {
+    id: "artifacts",
+    name: "ቅርሶች",
+    nameEnglish: "Artifacts",
+    photoItems: [
+      {
+        id: "artifact1",
+        images: [
+          "/placeholder.svg?height=400&width=600&text=Artifact 1 Img 1",
+          "/placeholder.svg?height=400&width=600&text=Artifact 1 Img 2",
+        ],
+        alt: "Historical Church Artifacts",
+        description: "Ancient crosses and religious manuscripts preserving the church's rich history.",
+      },
+    ],
+  },
+
+    {
+    id: "timket",
+    name: "ጥምቀት",
+    nameEnglish: "Timket",
+    photoItems: [
+      {
+        id: "timket1",
+        images: [
+          "/placeholder.svg?height=400&width=600&text=Artifact 1 Img 1",
+          "/placeholder.svg?height=400&width=600&text=Artifact 1 Img 2",
+        ],
+        alt: "Historical Church Artifacts",
+        description: "Ancient crosses and religious manuscripts preserving the church's rich history.",
+      },
+    ],
+  },
+]
+
+export const locationInfo = {
+  latitude: 9.0307, // Example latitude for Addis Ababa
+  longitude: 38.7489, // Example longitude for Addis Ababa
+  name: "የሰንበት ትምህርት ቤት ማዕከል",
+  address: "አዲስ አበባ፣ ኢትዮጵያ",
 }

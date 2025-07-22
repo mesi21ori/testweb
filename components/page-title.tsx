@@ -1,5 +1,4 @@
 "use client"
-
 import { motion } from "framer-motion"
 
 interface PageTitleProps {
@@ -12,7 +11,7 @@ export function PageTitle({ title }: PageTitleProps) {
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="text-5xl font-extrabold text-center text-yellow-900 mb-12"
+      className="text-5xl font-extrabold text-center text-foreground mb-12"
     >
       {title}
     </motion.h1>

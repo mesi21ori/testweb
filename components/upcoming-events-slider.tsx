@@ -1,7 +1,6 @@
 "use client"
-
 import type { Event } from "@/types/event"
-import { SliderEventCard } from "./slider-event-card" // Ensure this file is in the same directory
+import { SliderEventCard } from "./slider-event-card"
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react"
 import { Pagination, Scrollbar, A11y } from "swiper/modules"
 import "swiper/css"
@@ -17,14 +16,13 @@ interface UpcomingEventsSliderProps {
 // Helper component for custom navigation buttons
 function CustomNavigation() {
   const swiper = useSwiper()
-
   return (
     <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 px-4 flex justify-between items-center z-10 pointer-events-none">
       <motion.button
         onClick={() => swiper.slidePrev()}
         whileHover={{ scale: 1.15, x: -8, rotateY: -15 }}
         whileTap={{ scale: 0.9 }}
-        className="w-12 h-12 sm:w-16 sm:h-16 bg-cream/90 backdrop-blur-sm border-2 border-taupe/40 rounded-full flex items-center justify-center text-navy hover:border-navy/60 transition-colors shadow-xl hover:shadow-2xl pointer-events-auto"
+        className="w-12 h-12 sm:w-16 sm:h-16 bg-card/90 backdrop-blur-sm border-2 border-border rounded-full flex items-center justify-center text-foreground hover:border-primary/60 transition-colors shadow-xl hover:shadow-2xl pointer-events-auto"
         aria-label="Previous event"
       >
         <ChevronLeft size={20} className="sm:size-7" />
@@ -33,7 +31,7 @@ function CustomNavigation() {
         onClick={() => swiper.slideNext()}
         whileHover={{ scale: 1.15, x: 8, rotateY: 15 }}
         whileTap={{ scale: 0.9 }}
-        className="w-12 h-12 sm:w-16 sm:h-16 bg-cream/90 backdrop-blur-sm border-2 border-taupe/40 rounded-full flex items-center justify-center text-navy hover:border-navy/60 transition-colors shadow-xl hover:shadow-2xl pointer-events-auto"
+        className="w-12 h-12 sm:w-16 sm:h-16 bg-card/90 backdrop-blur-sm border-2 border-border rounded-full flex items-center justify-center text-foreground hover:border-primary/60 transition-colors shadow-xl hover:shadow-2xl pointer-events-auto"
         aria-label="Next event"
       >
         <ChevronRight size={20} className="sm:size-7" />
@@ -49,7 +47,7 @@ export function UpcomingEventsSlider({ upcomingEvents }: UpcomingEventsSliderPro
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="text-center text-gray-600 py-8 mb-12"
+        className="text-center text-muted-foreground py-8 mb-12"
       >
         <p className="text-xl font-semibold">No upcoming events to display at the moment.</p>
       </motion.div>
@@ -63,7 +61,7 @@ export function UpcomingEventsSlider({ upcomingEvents }: UpcomingEventsSliderPro
       transition={{ duration: 0.5, delay: 0.4 }}
       className="mb-12 relative"
     >
-      <h2 className="text-3xl font-bold text-yellow-900 mb-6 text-center">Upcoming Events</h2>
+      <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Upcoming Events</h2>
       <Swiper
         modules={[Pagination, Scrollbar, A11y]}
         spaceBetween={20}

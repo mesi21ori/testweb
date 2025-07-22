@@ -2,20 +2,24 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Church } from "lucide-react"
 import { sundaySchoolContent, churchImageUrl } from "@/lib/data"
+import { useTheme } from "@/components/theme-provider" // Import useTheme
 
 export function About() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const { currentColors } = useTheme()
+
+  // Dynamically generate the SVG background with the primary color
+  const svgBackground = `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='${encodeURIComponent(currentColors.primary)}' fillOpacity='0.4'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
 
   return (
-    <section id="about" className="py-32 relative overflow-hidden" ref={ref}>
+    <section id="about" className="py-32 relative overflow-hidden bg-background" ref={ref}>
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23123458' fillOpacity='0.4'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: svgBackground,
           }}
         />
       </div>
@@ -26,19 +30,17 @@ export function About() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-    
-          <h2 className="text-5xl lg:text-7xl font-black text-navy ">
-            ስለ{" "}
-            <span className="text-navy"> ሰንበት ት/ቤቱ</span>
+          <h2 className="text-5xl lg:text-7xl font-black text-foreground">
+            ስለ <span className="text-primary"> ሰንበት ት/ቤቱ</span>
           </h2>
           <motion.div
             initial={{ width: 0 }}
             animate={isInView ? { width: "120px" } : { width: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className="h-2 bg-gradient-to-r from-navy to-taupe mx-auto rounded-full mb-8"
+            className="h-2 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-8"
           />
-          <p className="text-xl text-navy/70 max-w-3xl mx-auto leading-relaxed">
-            ለሁሉም እድሜ ደረጃ እምነት፣ ትምህርት እና አስተባበር ማሳደግ 
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            ለሁሉም እድሜ ደረጃ እምነት፣ ትምህርት እና አስተባበር ማሳደግ
           </p>
         </motion.div>
         <div className="grid lg:grid-cols-2 gap-20 items-center mb-20">
@@ -48,9 +50,9 @@ export function About() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="space-y-8"
           >
-            <div className="bg-white/60 backdrop-blur-xl p-8 rounded-3xl border border-taupe/30 shadow-xl">
-              <h3 className="text-3xl font-bold text-navy mb-6">{sundaySchoolContent.title}</h3>
-              <div className="space-y-6 text-navy/80 leading-relaxed">
+            <div className="bg-card/60 backdrop-blur-xl p-8 rounded-3xl border border-border shadow-xl">
+              <h3 className="text-3xl font-bold text-foreground mb-6">{sundaySchoolContent.title}</h3>
+              <div className="space-y-6 text-muted-foreground leading-relaxed">
                 {sundaySchoolContent.paragraphs.map((paragraph, index) => (
                   <p key={index} className="text-lg">
                     {paragraph}
@@ -58,9 +60,9 @@ export function About() {
                 ))}
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="bg-gradient-to-r from-navy/10 to-taupe/10 p-6 rounded-2xl border-l-4 border-navy"
+                  className="bg-secondary/10 p-6 rounded-2xl border-l-4 border-primary"
                 >
-                  <p className="text-lg font-medium text-navy">{`"${sundaySchoolContent.quote}"`}</p>
+                  <p className="text-lg font-medium text-foreground">{`"${sundaySchoolContent.quote}"`}</p>
                 </motion.div>
               </div>
             </div>

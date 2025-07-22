@@ -1,6 +1,5 @@
 import { Music, Palette, Heart, Calendar } from "lucide-react"
 import { ChurchLayout } from "@/components/church-layout"
-import { StatsDashboard } from "@/components/stats-dashboard"
 
 import { ContactSection } from "@/components/contact-section"
 import { LocationMap } from "@/components/location-map"
@@ -8,7 +7,6 @@ import { Projects } from "@/components/news-section"
 import { MissionVisionPurpose } from "@/components/ValueMission"
 import { About } from "@/components/info-sections"
 import { ProgramsSection } from "@/components/service-section"
-import { programs } from "@/lib/data"
 
 
 export default function HomePage() {
@@ -23,7 +21,7 @@ export default function HomePage() {
       <Projects />
       <MissionVisionPurpose/>
       <About/>
-        <ProgramsSection programs={programs} />
+        <ProgramsSection/>
       <ContactSection />
       <LocationMap
         location={{

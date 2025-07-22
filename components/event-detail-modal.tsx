@@ -1,14 +1,7 @@
 "use client"
-
 import Image from "next/image"
 import type { Event } from "@/types/event"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { MapPin, Calendar, Clock } from "lucide-react"
 import { motion } from "framer-motion"
 
@@ -40,7 +33,7 @@ export function EventDetailModal({ event, isOpen, onClose }: EventDetailModalPro
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="bg-white rounded-lg shadow-xl flex flex-col h-full max-h-[90vh]"
+          className="bg-card rounded-lg shadow-xl flex flex-col h-full max-h-[90vh]"
         >
           {/* Image section */}
           <div className="relative h-48 w-full flex-shrink-0">
@@ -53,15 +46,13 @@ export function EventDetailModal({ event, isOpen, onClose }: EventDetailModalPro
               quality={85}
             />
           </div>
-
           {/* Header section */}
           <DialogHeader className="p-6 pb-4 flex-shrink-0">
-            <DialogTitle className="text-3xl font-bold text-navy">{event.title}</DialogTitle>
+            <DialogTitle className="text-3xl font-bold text-foreground">{event.title}</DialogTitle>
           </DialogHeader>
-
           {/* Scrollable content with hidden scrollbar */}
           <div
-            className="p-6 pt-0 space-y-4 text-gray-800 overflow-y-auto flex-grow min-h-0"
+            className="p-6 pt-0 space-y-4 text-foreground overflow-y-auto flex-grow min-h-0"
             style={{
               scrollbarWidth: "none", // Firefox
               msOverflowStyle: "none", // IE
@@ -72,30 +63,22 @@ export function EventDetailModal({ event, isOpen, onClose }: EventDetailModalPro
                 display: none;
               }
             `}</style>
-
-            <DialogDescription className="text-base text-gray-700 mb-4">
-              {event.description}
-            </DialogDescription>
-
+            <DialogDescription className="text-base text-muted-foreground mb-4">{event.description}</DialogDescription>
             <div className="flex items-center gap-3">
-              <MapPin className="h-5 w-5 text-yellow-700" />
+              <MapPin className="h-5 w-5 text-primary" />
               <span className="text-lg font-medium">{event.place}</span>
             </div>
-
             <div className="flex items-center gap-3">
-              <Calendar className="h-5 w-5 text-yellow-700" />
+              <Calendar className="h-5 w-5 text-primary" />
               <span className="text-lg font-medium">{formatDate(event.startTime)}</span>
             </div>
-
             <div className="flex items-center gap-3">
-              <Clock className="h-5 w-5 text-yellow-700" />
+              <Clock className="h-5 w-5 text-primary" />
               <span className="text-lg font-medium">Ends: {formatDate(event.endTime)}</span>
             </div>
-
-            <div className="mt-4 text-sm text-gray-600">
+            <div className="mt-4 text-sm text-muted-foreground">
               <p className="font-semibold">
-                Category:{" "}
-                <span className="capitalize font-normal">{event.category}</span>
+                Category: <span className="capitalize font-normal">{event.category}</span>
               </p>
             </div>
           </div>

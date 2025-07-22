@@ -1,4 +1,5 @@
 "use client"
+
 import { useEffect, useState, useRef } from "react"
 import { Globe, MapPin, Church, Users } from "lucide-react"
 import { motion } from "framer-motion"
@@ -17,7 +18,7 @@ function Experience({ title, titleAmharic, value }: ExperienceProps) {
     <section id="experience" className="py-2 md:py-12 relative overflow-hidden " ref={ref}>
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
-          className="absolute bottom-32 right-20 w-24 h-24 bg-navy/10 rounded-full"
+          className="absolute bottom-32 right-20 w-24 h-24 bg-primary/10 rounded-full"
           animate={{
             y: [-20, 20, -20],
             x: [-10, 10, -10],
@@ -42,24 +43,24 @@ function Experience({ title, titleAmharic, value }: ExperienceProps) {
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
             className="inline-block relative mb-4 md:mb-6"
           >
-            <div className="p-4 md:p-6 bg-cream border-4 border-taupe rounded-3xl">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-900">
+            <div className="p-4 md:p-6 bg-secondary border-4 border-primary rounded-3xl">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
                 <AnimatedCounter from={0} to={value} duration={2000} />
               </div>
-              <h3 className="text-base md:text-lg lg:text-xl font-semibold text-neutral-800">{title}</h3>
-              <p className="text-xs md:text-sm text-neutral-600">{titleAmharic}</p>
+              <h3 className="text-base md:text-lg lg:text-xl font-semibold text-foreground">{title}</h3>
+              <p className="text-xs md:text-sm text-muted-foreground">{titleAmharic}</p>
             </div>
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              className="absolute -inset-2 border-2 border-navy/30 rounded-3xl"
+              className="absolute -inset-2 border-2 border-primary/30 rounded-3xl"
             />
           </motion.div>
           <motion.div
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
             transition={{ delay: 0.6, duration: 1.2 }}
-            className="h-1 w-24 md:w-32 bg-gradient-to-r from-navy via-taupe to-navy mx-auto rounded-full mb-6 md:mb-8"
+            className="h-1 w-24 md:w-32 bg-gradient-to-r from-foreground via-secondary to-foreground mx-auto rounded-full mb-6 md:mb-8"
           />
         </motion.div>
       </div>
@@ -135,15 +136,15 @@ export function HeroSection({ title, titleAmharic, level }: HeroSectionProps) {
     },
   ]
   return (
-    <div className=" mt-10 bg-neutral-50 text-neutral-800 flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+    <div className=" mt-10 bg-background text-foreground flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
       <div className="text-center mb-4 sm:mb-6 md:mb-8 space-y-2 sm:space-y-3 md:space-y-4">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-900">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground">
           Sunday School Unity Portal
         </h1>
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-neutral-700">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground">
           ሰንበት ትምህርት ቤት አንድነት ፖርታል
         </h2>
-        <p className="text-base sm:text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
           Ethiopian Orthodox Tewahedo Church - Sunday School Unity Portal
         </p>
       </div>

@@ -1,10 +1,8 @@
 "use client"
-
 import { useState, useMemo } from "react"
 import type { Event } from "@/types/event"
 import { EventCard } from "./event-card"
 import { FilterBar } from "./filter-bar"
-// Removed: import { UpcomingEventsBanner } from "./upcoming-events-banner"
 import { motion, AnimatePresence } from "framer-motion"
 
 interface EventListProps {
@@ -33,7 +31,6 @@ export function EventList({ initialEvents }: EventListProps) {
 
   const filteredEvents = useMemo(() => {
     let events = initialEvents
-
     // Apply search filter
     if (searchQuery) {
       events = events.filter(
@@ -56,27 +53,23 @@ export function EventList({ initialEvents }: EventListProps) {
     return events.sort((a, b) => a.startTime.getTime() - b.startTime.getTime())
   }, [initialEvents, searchQuery, timeFilter])
 
-  // Removed: upcomingEventsCount as it's no longer needed here
-
   return (
     <div className="container mx-auto px-4 py-8">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="text-3xl font-bold text-yellow-900 mb-6 text-center md:text-left"
+        className="text-3xl font-bold text-foreground mb-6 text-center md:text-left"
       >
         All Events
       </motion.h2>
-
       <FilterBar onSearchChange={setSearchQuery} onTimeFilterChange={setTimeFilter} />
-
       {filteredEvents.length === 0 ? (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center text-gray-600 py-12"
+          className="text-center text-muted-foreground py-12"
         >
           <p className="text-xl font-semibold mb-4">No events found matching your criteria.</p>
           <p>Try adjusting your filters or search query.</p>

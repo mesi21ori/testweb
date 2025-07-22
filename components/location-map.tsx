@@ -1,9 +1,10 @@
 "use client"
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Church } from "lucide-react"
 import { Loader } from "@googlemaps/js-api-loader"
 import { useEffect, useRef } from "react"
+import { locationInfo } from "@/lib/data" // Import locationInfo
+import { useTheme } from "@/components/theme-provider" // Import useTheme
 
 interface LocationInfo {
   latitude: number
@@ -13,12 +14,13 @@ interface LocationInfo {
 }
 
 interface LocationMapProps {
-  location: LocationInfo
+  location?: LocationInfo // Make location optional and provide default
   apiKey: string
 }
 
-export function LocationMap({ location, apiKey }: LocationMapProps) {
+export function LocationMap({ location = locationInfo, apiKey }: LocationMapProps) {
   const mapRef = useRef<HTMLDivElement>(null)
+  const { currentColors } = useTheme()
 
   useEffect(() => {
     const initMap = async () => {
@@ -26,7 +28,6 @@ export function LocationMap({ location, apiKey }: LocationMapProps) {
         apiKey: apiKey,
         version: "weekly",
       })
-
       try {
         const { Map } = await loader.importLibrary("maps")
         const { AdvancedMarkerElement } = await loader.importLibrary("marker")
@@ -38,7 +39,7 @@ export function LocationMap({ location, apiKey }: LocationMapProps) {
         const mapOptions = {
           center: position,
           zoom: 15,
-          mapId: "DEMO_MAP_ID",
+          mapId: "DEMO_MAP_ID", // You might want to use a specific map ID from your Google Cloud project
           disableDefaultUI: true,
           gestureHandling: "greedy",
         }
@@ -58,13 +59,12 @@ export function LocationMap({ location, apiKey }: LocationMapProps) {
           const { InfoWindow } = await loader.importLibrary("maps")
           const infoWindow = new InfoWindow({
             content: `
-              <div class="p-2">
+              <div class="p-2 text-foreground bg-card">
                 <h3 class="font-bold">${location.name}</h3>
-                <p class="text-sm">${location.address}</p>
+                <p class="text-sm text-muted-foreground">${location.address}</p>
               </div>
             `,
           })
-
           marker.addListener("click", () => {
             infoWindow.open({
               anchor: marker,
@@ -72,58 +72,62 @@ export function LocationMap({ location, apiKey }: LocationMapProps) {
             })
           })
         }
-
       } catch (error) {
         console.error("Error loading Google Maps:", error)
       }
     }
-
     initMap()
   }, [location, apiKey])
 
   return (
-    <section className="space-y-6 m-10">
+    <section className="space-y-6 m-10 bg-background">
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">Location</h2>
-        <p className="text-xl text-gray-600">አካባቢ</p>
+        <h2 className="text-3xl font-bold text-foreground mb-2">Location</h2>
+        <p className="text-xl text-muted-foreground">አካባቢ</p>
       </div>
-
-      <Card className="">
+      <Card className="bg-card text-card-foreground">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Church className="w-5 h-5 text-yellow-600" />
+            <Church className="w-5 h-5 text-primary" />
             {location.name}
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="rounded-lg overflow-hidden">
             {/* Map container */}
-            <div 
-              ref={mapRef} 
-              className="w-full h-96 bg-gray-100"
+            <div
+              ref={mapRef}
+              className="w-full h-96 bg-muted" // Use muted for a placeholder background
               aria-label="Map showing church location"
             >
               {/* Loading fallback */}
-              <div className="h-full flex items-center justify-center bg-gradient-to-br from-yellow-50 to-red-50">
+              <div
+                className="h-full flex items-center justify-center"
+                style={{
+                  background: `linear-gradient(to bottom right, ${currentColors.background} 0%, ${currentColors.secondary} 100%)`,
+                }}
+              >
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Church className="w-8 h-8 text-white" />
+                  <div
+                    className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                    style={{
+                      background: `linear-gradient(to right, ${currentColors.primary} 0%, ${currentColors.secondary} 100%)`,
+                    }}
+                  >
+                    <Church className="w-8 h-8 text-primary-foreground" />
                   </div>
-                  <p className="text-gray-600">Loading map...</p>
+                  <p className="text-muted-foreground">Loading map...</p>
                 </div>
               </div>
             </div>
-
             {/* Location details */}
             <div className="mt-4 text-center">
-              {location.address && (
-                <p className="text-gray-700 mb-2">{location.address}</p>
-              )}
+              {location.address && <p className="text-muted-foreground mb-2">{location.address}</p>}
               <a
                 href={`https://www.google.com/maps?q=${location.latitude},${location.longitude}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-4 py-2 bg-yellow-600/80 text-white rounded-md hover:bg-yellow-600 transition-colors text-sm"
+                className="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm"
               >
                 Open in Google Maps
               </a>
