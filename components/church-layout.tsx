@@ -22,7 +22,7 @@ export function ChurchLayout({ children, level, title, titleAmharic, breadcrumb 
       {/* <Header breadcrumb={breadcrumb} /> */}
       <HeroSection title={title} titleAmharic={titleAmharic} level={level} />
       <main className="">{children}</main>
-      <Footer />
+   
     </div>
   )
 }

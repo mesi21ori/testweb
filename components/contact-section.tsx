@@ -85,7 +85,7 @@ export function ContactSection() {
   }
 
   return (
-    <section className="py-12 relative overflow-hidden bg-background" ref={ref}>
+    <section id="contact" className="py-12 relative overflow-hidden bg-background" ref={ref}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

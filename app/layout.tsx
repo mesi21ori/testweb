@@ -4,6 +4,7 @@ import { Inter, Noto_Sans_Ethiopic } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/header"
 import { ThemeProvider } from "@/components/theme-provider" // Import ThemeProvider
+import { Footer } from "@/components/footer"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -43,6 +44,7 @@ export default function RootLayout({
           {/* Wrap children with ThemeProvider */}
           <Header />
           {children}
+        <Footer/>
         </ThemeProvider>
       </body>
     </html>
