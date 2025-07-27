@@ -27,24 +27,9 @@ interface ExperienceProps {
 function Experience({ title, titleAmharic, value, iconName }: ExperienceProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const IconComponent = iconMap[iconName] // Get the component from the map
-
+  const IconComponent = iconMap[iconName] 
   return (
-    <section id="experience" className="py-2 md:py-12 relative overflow-hidden " ref={ref}>
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          className="absolute bottom-32 right-20 w-24 h-24 bg-primary/10 rounded-full"
-          animate={{
-            y: [-20, 20, -20],
-            x: [-10, 10, -10],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
+    <section id="experience" className="py-2 md:py-12 relative overflow-hidden mt-10 " ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -58,7 +43,7 @@ function Experience({ title, titleAmharic, value, iconName }: ExperienceProps) {
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
             className="inline-block relative mb-4 md:mb-6"
           >
-            <div className="p-4 md:p-6 bg-secondary border-4 border-primary rounded-3xl">
+            <div className="p-10 md:p-6 bg-secondary border-2 border-primary rounded-3xl">
               {IconComponent && ( // Render icon if component exists
                 <div className="mb-2 flex justify-center">
                   <IconComponent className="w-8 h-8 text-primary" />
