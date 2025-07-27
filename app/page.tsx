@@ -1,27 +1,22 @@
-import { Music, Palette, Heart, Calendar } from "lucide-react"
+import "./globals.css"
 import { ChurchLayout } from "@/components/church-layout"
+import { getMainPageData } from "@/lib/church-structure-data" // Import from new data file
 
 import { ContactSection } from "@/components/contact-section"
 import { LocationMap } from "@/components/location-map"
-import { Projects } from "@/components/news-section"
-import { MissionVisionPurpose } from "@/components/ValueMission"
 import { About } from "@/components/info-sections"
+import { Projects } from "@/components/news-section"
 import { ProgramsSection } from "@/components/service-section"
+import { MissionVisionPurpose } from "@/components/ValueMission"
 
-
-export default function HomePage() {
- 
-
+export default function Page() {
+  const mainPageData = getMainPageData()
   return (
-    <ChurchLayout
-      level="main"
-      title="አዲስ አበባ ሀገረ ስብከት ሰንበት ት/ቤቶች አንድነት"
-      titleAmharic="Addis Ababa Diocess Sunday Schools Unity"
-    >
+    <ChurchLayout heroSectionData={mainPageData}>
       <Projects />
-      <MissionVisionPurpose/>
-      <About/>
-        <ProgramsSection/>
+      <MissionVisionPurpose />
+      <About />
+      <ProgramsSection />
       <ContactSection />
       <LocationMap
         location={{

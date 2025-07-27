@@ -1,15 +1,10 @@
 import { ChurchLayout } from "@/components/church-layout"
 import { HierarchicalList } from "@/components/hierarchical-list"
-import { StatsDashboard } from "@/components/stats-dashboard"
-import { NewsSection } from "@/components/news-section"
-import { InfoSections } from "@/components/info-sections"
-import { ContactSection } from "@/components/contact-section"
-import { LocationMap } from "@/components/location-map"
-import { getSubcityData } from "@/lib/church-data"
+import { getSubcityData, getDioceseData } from "@/lib/church-structure-data" // Import from new data file
 import { notFound } from "next/navigation"
 
 interface SubcityPageProps {
-  params: Promise<{ dioceseId: string; subcityId: string }>
+  params: { dioceseId: string; subcityId: string }
 }
 
 export default async function SubcityPage({ params }: SubcityPageProps) {
@@ -20,29 +15,21 @@ export default async function SubcityPage({ params }: SubcityPageProps) {
     notFound()
   }
 
+  const breadcrumb = [
+    { name: "Home", href: "/" },
+    { name: getDioceseData(dioceseId)?.nameEnglish || "Diocese", href: `/diocese/${dioceseId}` },
+    { name: subcityData.nameEnglish, href: `/diocese/${dioceseId}/subcity/${subcityId}` },
+  ]
+
   return (
-    <ChurchLayout
-      level="subcity"
-      title={`${subcityData.name} Sunday Schools Unity`}
-      titleAmharic={`${subcityData.nameAmharic} ሰንበት ት/ቤቶች አንድነት`}
-      breadcrumb={[
-        { name: "Home", href: "/" },
-        { name: `${subcityData.dioceseName} Diocese`, href: `/diocese/${dioceseId}` },
-        { name: subcityData.name, href: `/diocese/${dioceseId}/subcity/${subcityId}` },
-      ]}
-    >
+    <ChurchLayout heroSectionData={subcityData} breadcrumb={breadcrumb}>
       <HierarchicalList
         level="subcity"
         items={subcityData.churches}
-        title="Church Sunday Schools"
-        titleAmharic="የቤተክርስቲያን ሰንበት ት/ቤቶች"
+        title="Churches"
+        titleAmharic="ቤተ ክርስቲያናት"
         parentPath={`/diocese/${dioceseId}/subcity/${subcityId}`}
       />
-      <StatsDashboard stats={subcityData.stats} />
-      <NewsSection news={subcityData.news} />
-      <InfoSections info={subcityData.info} />
-      <ContactSection contact={subcityData.contact} />
-      <LocationMap location={subcityData.location} />
     </ChurchLayout>
   )
 }

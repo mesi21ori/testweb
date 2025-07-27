@@ -1,15 +1,10 @@
 import { ChurchLayout } from "@/components/church-layout"
 import { HierarchicalList } from "@/components/hierarchical-list"
-import { StatsDashboard } from "@/components/stats-dashboard"
-import { NewsSection } from "@/components/news-section"
-import { InfoSections } from "@/components/info-sections"
-import { ContactSection } from "@/components/contact-section"
-import { LocationMap } from "@/components/location-map"
-import { getDioceseData } from "@/lib/church-data"
+import { getDioceseData } from "@/lib/church-structure-data" // Import from new data file
 import { notFound } from "next/navigation"
 
 interface DiocesePageProps {
-  params: Promise<{ dioceseId: string }>
+  params: { dioceseId: string }
 }
 
 export default async function DiocesePage({ params }: DiocesePageProps) {
@@ -20,16 +15,13 @@ export default async function DiocesePage({ params }: DiocesePageProps) {
     notFound()
   }
 
+  const breadcrumb = [
+    { name: "Home", href: "/" },
+    { name: dioceseData.nameEnglish, href: `/diocese/${dioceseId}` },
+  ]
+
   return (
-    <ChurchLayout
-      level="diocese"
-      title={`${dioceseData.name} Diocese Sunday Schools Unity`}
-      titleAmharic={`${dioceseData.nameAmharic} ሀገረ ስብከት ሰንበት ት/ቤቶች አንድነት`}
-      breadcrumb={[
-        { name: "Home", href: "/" },
-        { name: `${dioceseData.name} Diocese`, href: `/diocese/${dioceseId}` },
-      ]}
-    >
+    <ChurchLayout heroSectionData={dioceseData} breadcrumb={breadcrumb}>
       <HierarchicalList
         level="diocese"
         items={dioceseData.subcities}
@@ -37,11 +29,6 @@ export default async function DiocesePage({ params }: DiocesePageProps) {
         titleAmharic="ክፍለ ከተሞች"
         parentPath={`/diocese/${dioceseId}`}
       />
-      <StatsDashboard stats={dioceseData.stats} />
-      <NewsSection news={dioceseData.news} />
-      <InfoSections info={dioceseData.info} />
-      <ContactSection contact={dioceseData.contact} />
-      <LocationMap location={dioceseData.location} />
     </ChurchLayout>
   )
 }

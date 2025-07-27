@@ -1,24 +1,48 @@
 "use client"
 
+import type React from "react"
+
 import { useEffect, useState, useRef } from "react"
-import { Globe, MapPin, Church, Users } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
+import type { StatItem } from "@/lib/church-structure-data"
+import * as LucideIcons from "lucide-react" // Import all Lucide icons
+
+// Create a map of icon names to their components
+const iconMap: { [key: string]: React.ElementType } = {
+  Globe: LucideIcons.Globe,
+  MapPin: LucideIcons.MapPin,
+  Church: LucideIcons.Church,
+  Users: LucideIcons.Users,
+  // Add other icons as needed
+}
 
 interface ExperienceProps {
   title: string
   titleAmharic: string
   value: number
+  iconName: string // Changed to string
 }
 
-function Experience({ title, titleAmharic, value }: ExperienceProps) {
+function Experience({ title, titleAmharic, value, iconName }: ExperienceProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const IconComponent = iconMap[iconName] // Get the component from the map
+
   return (
     <section id="experience" className="py-2 md:py-12 relative overflow-hidden " ref={ref}>
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
-        
+          className="absolute bottom-32 right-20 w-24 h-24 bg-primary/10 rounded-full"
+          animate={{
+            y: [-20, 20, -20],
+            x: [-10, 10, -10],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+          }}
         />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -34,7 +58,12 @@ function Experience({ title, titleAmharic, value }: ExperienceProps) {
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
             className="inline-block relative mb-4 md:mb-6"
           >
-            <div className="p-4 md:p-6 border-4 border-primary rounded-3xl">
+            <div className="p-4 md:p-6 bg-secondary border-4 border-primary rounded-3xl">
+              {IconComponent && ( // Render icon if component exists
+                <div className="mb-2 flex justify-center">
+                  <IconComponent className="w-8 h-8 text-primary" />
+                </div>
+              )}
               <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
                 <AnimatedCounter from={0} to={value} duration={2000} />
               </div>
@@ -93,55 +122,30 @@ interface HeroSectionProps {
   title: string
   titleAmharic: string
   level: "main" | "diocese" | "subcity" | "church"
+  stats: StatItem[]
 }
 
-export function HeroSection({ title, titleAmharic, level }: HeroSectionProps) {
-  const stats = [
-    {
-      label: "Dioceses",
-      amharicLabel: "ሀገረ ስብከቶች",
-      value: 15,
-      icon: Globe,
-      description: "Geographical administrative regions of the church.",
-    },
-    {
-      label: "Subcities",
-      amharicLabel: "ክፍለ ከተሞች",
-      value: 45,
-      icon: MapPin,
-      description: "Urban divisions where churches are located.",
-    },
-    {
-      label: "Churches",
-      amharicLabel: "ቤተክርስቲያናት",
-      value: 300,
-      icon: Church,
-      description: "Places of worship and community gathering.",
-    },
-    {
-      label: "Students",
-      amharicLabel: "ተማሪዎች",
-      value: 500,
-      icon: Users,
-      description: "Individuals enrolled in Sunday School programs.",
-    },
-  ]
+export function HeroSection({ title, titleAmharic, level, stats }: HeroSectionProps) {
   return (
     <div className=" mt-10 bg-background text-foreground flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
       <div className="text-center mb-4 sm:mb-6 md:mb-8 space-y-2 sm:space-y-3 md:space-y-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground">
-          Sunday School Unity Portal
+          {titleAmharic}
         </h1>
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground">
-          ሰንበት ትምህርት ቤት አንድነት ፖርታል
-        </h2>
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground">{title}</h2>
         <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
           Ethiopian Orthodox Tewahedo Church - Sunday School Unity Portal
         </p>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 w-full max-w-6xl justify-items-center">
         {stats.map((stat, index) => (
-          <Experience key={index} title={stat.label} titleAmharic={stat.amharicLabel} value={stat.value} />
+          <Experience
+            key={index}
+            title={stat.label}
+            titleAmharic={stat.amharicLabel}
+            value={stat.value}
+            iconName={stat.icon} // Pass the icon name as a string
+          />
         ))}
       </div>
     </div>

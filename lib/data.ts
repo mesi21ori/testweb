@@ -989,3 +989,9 @@ export const locationInfo = {
   name: "የሰንበት ትምህርት ቤት ማዕከል",
   address: "አዲስ አበባ፣ ኢትዮጵያ",
 }
+
+export const churchlayout={
+  level:"main",
+      title:"አዲስ አበባ ሀገረ ስብከት ሰንበት ት/ቤቶች አንድነት",
+      titleAmharic:"Addis Ababa Diocess Sunday Schools Unity"
+}
