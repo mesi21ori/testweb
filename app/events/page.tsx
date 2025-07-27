@@ -1,4 +1,3 @@
-// This file remains a Server Component
 
 import { getEvents } from "@/lib/data"
 import { EventList } from "@/components/event-list"
@@ -16,10 +15,9 @@ export default async function EventsPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        <PageTitle title=" Events" /> {/* Use the new client component */}
-        {/* Upcoming Events Slider */}
+        <PageTitle title=" Events" /> 
         <UpcomingEventsSlider upcomingEvents={upcomingEventsForSlider} />
-        {/* All Events List with Filtering */}
+
         <EventList initialEvents={allEvents} />
       </div>
     </main>

@@ -5,7 +5,7 @@ import { LocationMap } from "@/components/location-map"
 import { Projects } from "@/components/news-section"
 import { ProgramsSection } from "@/components/service-section"
 import { MissionVisionPurpose } from "@/components/ValueMission"
-import { getChurchData, getDioceseData, getSubcityData } from "@/lib/church-structure-data" // Import from new data file
+import { getChurchData, getDioceseData, getSubcityData } from "@/lib/church-structure-data" 
 import { notFound } from "next/navigation"
 
 interface ChurchPageProps {
@@ -41,8 +41,8 @@ export default async function ChurchPage({ params }: ChurchPageProps) {
         location={{
           latitude: 9.0359,
           longitude: 38.7526,
-          name: "Meskel Square", // Placeholder, ideally this would come from churchData
-          address: "Meskel Square, Addis Ababa, Ethiopia", // Placeholder
+          name: "Meskel Square", 
+          address: "Meskel Square, Addis Ababa, Ethiopia", 
         }}
         apiKey="AIzaSyB90EitOwS5awbbIjAivDbnki9ClQ8C9zY"
       />

@@ -1,6 +1,6 @@
 import { ChurchLayout } from "@/components/church-layout"
 import { HierarchicalList } from "@/components/hierarchical-list"
-import { getSubcityData, getDioceseData } from "@/lib/church-structure-data" // Import from new data file
+import { getSubcityData, getDioceseData } from "@/lib/church-structure-data" 
 import { notFound } from "next/navigation"
 
 interface SubcityPageProps {

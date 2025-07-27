@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Inter, Noto_Sans_Ethiopic } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/header"
-import { ThemeProvider } from "@/components/theme-provider" // Import ThemeProvider
+import { ThemeProvider } from "@/components/theme-provider" 
 import { Footer } from "@/components/footer"
 
 const inter = Inter({

@@ -2,7 +2,7 @@ import type React from "react"
 import { Header } from "./header"
 import { Footer } from "./footer"
 import { HeroSection } from "./hero-section"
-import type { StatItem } from "@/lib/church-structure-data" // Import StatItem
+import type { StatItem } from "@/lib/church-structure-data" 
 
 interface Breadcrumb {
   name: string
@@ -23,15 +23,13 @@ interface ChurchLayoutProps {
 export function ChurchLayout({ children, breadcrumb, heroSectionData }: ChurchLayoutProps) {
   return (
     <div className="min-h-screen bg-background">
-      <Header breadcrumb={breadcrumb} />
       <HeroSection
         title={heroSectionData.titleAmharic}
         titleAmharic={heroSectionData.title}
         level={heroSectionData.level}
-        stats={heroSectionData.stats} // Pass dynamic stats
+        stats={heroSectionData.stats} 
       />
       <main className="">{children}</main>
-      <Footer />
     </div>
   )
 }
